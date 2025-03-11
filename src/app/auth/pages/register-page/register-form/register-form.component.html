@@ -1,0 +1,28 @@
+
+<form class="form-class" [formGroup]="datosForm">
+
+  <label class="label-input" for="userName">Nombre de usuario</label>
+  <div class="input-custom">
+    <input formControlName="userName" type="text" placeholder="example01" id="userName">
+  </div>
+
+  <label class="label-input" for="email">Correo electronico</label>
+  <div class="input-custom">
+    <input formControlName="email" type="email" placeholder="example@gmail.com" id="email">
+  </div>
+
+  <label class="label-input" for="pass">Contraseña</label>
+  <div class="input-custom">
+    <input formControlName="pass" type="password" placeholder="*********" id="pass">
+  </div>
+
+  <div style="text-align: center;">
+    <button class="btn-enviar" type="submit" >
+      <strong>Registrarse</strong>
+    </button>
+  </div>
+</form>
+
+
+
+
