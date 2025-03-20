@@ -1,0 +1,37 @@
+import { NgClass } from '@angular/common';
+import { Component, computed, input, linkedSignal, OnInit, signal } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+
+@Component({
+  selector: 'app-coment',
+  templateUrl: './coment.component.html',
+  styleUrls: ['./coment.component.scss'],
+  imports:[IonicModule, NgClass]
+})
+export class ComentComponent  implements OnInit {
+  toggleExpanded() {
+    if(this.isExpanded()){
+      this.isExpanded.set(false)
+      return
+    }
+
+    this.isExpanded.set(true)
+  }
+
+  toggleLike() {
+    if(this.hasLike()){
+      this.hasLike.set(false)
+      return
+    }
+
+    this.hasLike.set(true)
+  }
+  hasComent = input.required<boolean>()
+  hasLike = signal<boolean>(false)
+
+  isExpanded = signal<boolean>(false)
+  constructor() { }
+
+  ngOnInit() {}
+
+}

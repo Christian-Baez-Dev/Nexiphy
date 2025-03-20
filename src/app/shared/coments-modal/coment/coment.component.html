@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div class="container-img">
+    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="">
+  </div>
+  <div class="comment">
+    <p class="comment-user">&#64;WTowers  <span>hace 1 hora</span></p>
+    <p>El mejor</p>
+    <div class="comment-extras">
+      <p>Responder</p>
+    </div>
+
+    @if (hasComent()) {
+      <div class="comment-replies" [ngClass]="{'border-gray': isExpanded()}">
+
+        @if (isExpanded()) {
+          <div class="comment-replies-replies">
+            <app-coment [hasComent]="false" />
+            <app-coment [hasComent]="false" />
+            <app-coment [hasComent]="false" />
+            <app-coment [hasComent]="false" />
+            <app-coment [hasComent]="false" />
+            <app-coment [hasComent]="false" />
+            <app-coment [hasComent]="false" />
+
+          </div>
+        }
+
+        @if (isExpanded()) {
+          <p class="comment-replies-toggle" (click)="toggleExpanded()">Ocultar respuestas (21111111111)</p>
+        }@else {
+          <p class="comment-replies-toggle"(click)="toggleExpanded()">Mostrar respuestas (21111111111)</p>
+        }
+
+      </div>
+
+
+    }
+  </div>
+
+  @if (hasLike()) {
+    <svg (click)="toggleLike()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M12.5 8.76826C11.0949 5.6985 7.82669 5.42548 6.30486 6.764C5.06518 7.8381 4.47007 10.4134 5.60192 12.7838C7.55426 16.8596 12.5 19 12.5 19C12.5 19 17.4465 16.8596 19.3981 12.7838C20.5299 10.4134 19.9348 7.8381 18.6951 6.764C17.1733 5.42548 13.9051 5.69928 12.5 8.76826Z" fill="#E33629" stroke="#E33629" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  }@else {
+    <svg (click)="toggleLike()" xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24" fill="none">
+      <path d="M11.6777 8.56953C10.2727 5.49977 7.00442 5.22675 5.48259 6.56527C4.24292 7.63937 3.64781 10.2147 4.77965 12.5851C6.732 16.6609 11.6777 18.8013 11.6777 18.8013C11.6777 18.8013 16.6243 16.6609 18.5758 12.5851C19.7077 10.2147 19.1126 7.63937 17.8729 6.56527C16.351 5.22675 13.0828 5.50055 11.6777 8.56953Z" stroke="#A6A6A6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+  }
+
+
+</div>

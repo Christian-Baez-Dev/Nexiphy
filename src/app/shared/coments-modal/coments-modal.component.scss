@@ -1,0 +1,43 @@
+.custom-modal {
+  --height: 100vh;
+  --border-radius: 40px; /* Aplica el borde redondeado */
+  --background: #303030;
+}
+
+
+.custom-modal::part(content) {
+  overflow: scroll; /* Evita que el contenido sobresalga */
+}
+
+
+
+.custom-modal-container{
+  overflow-y: scroll;
+  padding: 0px 20px;
+  padding-bottom: 15px;
+  height: 100vh;
+}
+.custom-modal-container-title{
+  background-color: #303030;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Poppins';
+  position: sticky !important;
+  padding: 25px 0;
+  top: 0;
+  z-index: 2;
+  opacity: 1;
+}
+
+
+ion-avatar::part(image) {
+  display: inline; /* Puedes usar flex, inline-block, etc. */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Para mantener la forma circular */
+}
+
+.custom-modal-container-coments{
+  position: relative;
+}

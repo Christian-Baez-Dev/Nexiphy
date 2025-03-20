@@ -1,0 +1,15 @@
+
+
+<ion-modal [cssClass]="'custom-modal'" [trigger]="trigger()" [initialBreakpoint]="1" [breakpoints]="[0, 1]" [keyboardClose]="true" [showBackdrop]="true" [backdropDismiss]="true">
+  <ng-template >
+
+    <div class="custom-modal-container">
+      <div class="custom-modal-container-title">
+        Comentarios
+      </div>
+      <div class="custom-modal-container-coments">
+        <app-coment  [hasComent]="true"/>
+      </div>
+    </div>
+  </ng-template>
+</ion-modal>

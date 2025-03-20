@@ -1,1 +1,6 @@
-<app-carousel/>
+
+<div class="prueba">
+  @for (item of items; track $index) {
+    <home-page-card [datos]="item"/>
+  }
+</div>

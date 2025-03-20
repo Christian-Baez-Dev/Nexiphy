@@ -1,0 +1,22 @@
+<div class="preview-message-container">
+  <div class="preview-message-container-img">
+    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" >
+  </div>
+
+  <div class="preview-message-container-information" #divInformation>
+    <h5>Lizbeth Hernández</h5>
+    <p>{{'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum adipisci, temporibus tenetur quis itaque officiis doloribus pariatur explicabo aliquid. Possimus harum reprehenderit enim adipisci quae quisquam cupiditate obcaecati est minus.' | dynamicTruncate:divInformation.offsetWidth}} </p>
+  </div>
+
+  @if(hasNewMessage()){
+    <div class="badged">
+      
+    </div>
+  }@else {
+    <div class="preview-message-container-time">
+      12:30
+    </div>
+  }
+
+
+</div>

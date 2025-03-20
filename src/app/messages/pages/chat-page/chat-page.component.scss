@@ -1,0 +1,152 @@
+.fondo-chat{
+  overflow: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+
+.chat-header-class{
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.chat-content{
+  padding: 0 15px;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.chat-content-messageWrapper{
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+
+
+
+.user-wrapper{
+  justify-content: end;
+}
+
+.friend-wrapper{
+  justify-content: start;
+}
+
+.chat-content-messageWrapper-message{
+  position: relative;
+  display: inline-flex;
+  padding: 7px 20px;
+  justify-content: center;
+  align-items: center;
+  background: #535353;
+  border-radius: 25px;
+  max-width: 90%;
+  flex-wrap: wrap;
+}
+
+.chat-content-messageWrapper-message p {
+  font-family: Poppins;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+.user-message{
+  background: #C5FF15;
+  border-bottom-right-radius: 0;
+
+
+}
+
+
+
+.user-message p {
+  color: black;
+}
+
+.friend-message{
+  background: #535353;
+  border-bottom-left-radius: 0;
+
+
+}
+
+.friend-message p {
+  color: white;
+}
+
+
+footer{
+  position: fixed;
+  bottom: 0;
+  padding: 10px 10px;
+  background: #303030;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  scrollbar-color: transparent;
+
+}
+
+.textarea-message{
+  background-color: #3a3a3a;
+  border: none;
+  outline: none;
+  color:  white;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 90%;
+  height: auto;
+  max-height: 100px;
+  resize: none; /* Evita que el usuario lo ajuste manualmente */
+  overflow-y: auto;
+  padding: 10px 0;
+  padding-left: 15px;
+  padding-right: 50px;
+  border-radius: 30px;
+  field-sizing: content;
+  flex: 1;
+  scrollbar-color: transparent;
+  min-height: 30px;
+  transition-duration: 200ms;
+}
+
+.textarea-message::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Edge */
+}
+
+.textarea-message:focus {
+  border-radius: 10px;
+}
+
+// @media (height < 50px){
+
+//   .textarea-message{
+//     border-radius: 10px;
+//   }
+
+// }
+
+.send{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}

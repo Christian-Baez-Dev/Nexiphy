@@ -1,0 +1,55 @@
+svg{
+  outline: none;
+  border: none;
+  position: relative;
+}
+img{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+
+.nav-bar{
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #303030;
+  position: relative;
+
+  &-line{
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background-color: #c4ff15;
+    top: 0;
+
+
+    transition: all ease  400ms;
+  }
+}
+
+.path{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 27px;
+  aspect-ratio: 1/1;
+  stroke: white;
+
+  transition: color ease 300ms
+}
+
+.active{
+  stroke: #C5FF15 ;
+}
+.div-option{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

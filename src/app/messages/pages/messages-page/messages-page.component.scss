@@ -1,0 +1,62 @@
+.fondo-messages{
+  overflow-y: auto;
+}
+
+.messages{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+.messages-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 15px;
+  width: 100vw;
+}
+
+.back {
+  position: absolute;
+  left: 15px; /* Lo mantiene pegado a la izquierda */
+}
+
+.messages-header h2{
+  color: #fff;
+  font-family: 'Poppins';
+  font-size: 16px;
+
+}
+
+.searchbar-class{
+  display: block;
+  width: 90vw;
+  margin-top: 10px;
+}
+
+.messages-previews{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 15px;
+  padding: 0 10px;
+}
+
+hr{
+  width: 90vw;
+  height: 1px;
+  margin: 0;
+  color: #6666669e;
+  margin-bottom: 15px ;
+  margin-top: 7.5px;
+}
+
+.messages-previews-chat{
+  width: 100vw;
+
+}
