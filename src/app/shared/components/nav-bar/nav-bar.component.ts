@@ -1,6 +1,7 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ComponentsHomeServiceService } from '../../../services/components-home-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,6 +13,8 @@ export class NavBarComponent  implements OnInit {
   router = inject(Router)
   positionLine = signal<number>(0)
   withLine = signal<number>(67)
+
+  componentsHomeServiceService = inject(ComponentsHomeServiceService)
 
   goToMessages() {
     console.log('navigate')

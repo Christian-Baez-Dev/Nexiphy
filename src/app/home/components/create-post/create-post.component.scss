@@ -1,0 +1,161 @@
+/* Definimos la animación de apertura */
+/* Definimos la animación de "crecer" */
+@keyframes growEffect {
+  0% {
+    transform: scale(0.2); /* Comienza pequeño */
+  }
+
+  95%{
+    transform: scale(1.09); /* Comienza pequeño */
+
+  }
+  100% {
+    transform: scale(1); /* Finaliza en su tamaño normal */
+  }
+}
+
+/* Aplicamos la animación al contenedor */
+.grow {
+  animation: growEffect 200ms ease ; /* La animación dura 1 segundo */
+}
+.create{
+  position: relative;
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  background-color: #2B2B2B;
+
+  border-radius: 15px;
+  &-header{
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+
+    border-bottom: 1px solid #4b4b4bc7;
+    &-close{
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      padding: 10px 20px;
+      transform: translateY(-50%); /* Centra verticalmente correctamente */
+
+      color: #C5FF15;
+      font-family: Poppins;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      background-color: transparent;
+    }
+
+    &-title{
+      color: #FFF;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      margin: 0;
+    }
+  }
+
+
+
+    &-coment{
+      display: flex;
+      flex-direction: row;
+      align-items: start ;
+      justify-content: start;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding: 0 20px;
+      padding-top: 10px;
+      img{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+
+
+      &-text{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        overflow: hidden;
+        p{
+          color: #C5FF15;
+          font-family: Poppins;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin-bottom: 2px;
+        }
+
+        textarea{
+          background-color: transparent;
+          border: none;
+          outline: none;
+          color:  white;
+          font-family: Poppins;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          width:100%;
+          max-width: 100%;
+          height: auto;
+          max-height: 70px;
+          resize: none; /* Evita que el usuario lo ajuste manualmente */
+          overflow-y: auto;
+          padding: 0;
+          field-sizing: content;
+          scrollbar-color: transparent;
+          transition-duration: 200ms;
+
+          text-align: start;
+        }
+      }
+
+    }
+
+    &-options{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      width: 100%;
+
+      &-icons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      button{
+        padding: 5px 20px;
+        border-radius: 4px;
+        background: #C5FF15;
+        color: #282828;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+
+}
+
+.hide{
+  display: none;
+}

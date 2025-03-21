@@ -1,6 +1,13 @@
 
-<div class="prueba">
+<div class="home">
   @for (item of items; track $index) {
     <home-page-card [datos]="item"/>
   }
+
+  @if(componentsHomeService.isCreateOpen()){
+    <div class="home-create">
+      <app-create-post (close)="componentsHomeService.isCreateOpen.set(false)"/>
+    </div>
+  }
+
 </div>
