@@ -1,0 +1,46 @@
+.radio{
+  display: flex;
+  flex-direction: column;
+
+  &-options{
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    gap: 10px;
+
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+
+    max-height: 0;
+
+    transition: max-height 200ms ease;
+    label{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+
+  }
+
+
+}
+
+
+.open{
+  max-height: 80px;
+
+  overflow-y: auto;
+  opacity: 1;
+  position: relative;
+}
+

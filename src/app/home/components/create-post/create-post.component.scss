@@ -26,6 +26,8 @@
   background-color: #2B2B2B;
 
   border-radius: 15px;
+
+  transition: all  200ms ease;
   &-header{
     position: relative;
 
@@ -117,9 +119,8 @@
           padding: 0;
           field-sizing: content;
           scrollbar-color: transparent;
-          transition-duration: 200ms;
-
           text-align: start;
+
         }
       }
 

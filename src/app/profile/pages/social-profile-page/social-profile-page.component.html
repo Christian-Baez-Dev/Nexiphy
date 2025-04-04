@@ -1,0 +1,33 @@
+<main class="profile">
+  <app-banner class="profile-banner"/>
+  <div class="profile-containerPicture">
+    <div class="profile-containerPicture-picture">
+      <img  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="">
+    </div>
+  </div>
+
+
+  <article class="profile-content">
+    <div class="profile-content-data">
+      <h4>Billie Ailesh</h4>
+      <p>&#64;yailinlamasviral</p>
+
+      <div class="profile-content-data-metrics">
+        <p>{{1500000 | truncateNumber}} seguidores</p>
+        <p>{{1500000 | truncateNumber}} seguidos</p>
+        <p>{{1500000 | truncateNumber}} publicaciones</p>
+      </div>
+    </div>
+
+    <section class="profile-content-posts">
+      <post-card class="profile-content-posts-post" [datos]="'1'" [isProfile]="true"/>
+      <post-card class="profile-content-posts-post" [datos]="'2'" [isProfile]="true"/>
+      <post-card class="profile-content-posts-post" [datos]="'3'" [isProfile]="true"/>
+      <post-card class="profile-content-posts-post" [datos]="'4'" [isProfile]="true"/>
+
+    </section>
+  </article>
+
+
+</main>
+

@@ -1,0 +1,12 @@
+<section class="filter fondo">
+  <header class="filter-header">
+    <button (click)="close.emit()">Cancelar</button>
+    <h3>Filtros</h3>
+  </header>
+
+  <div class="filter-filters">
+    <app-radio-select (selectedValue)="value.set($event)" class="filter-filters-oderBy"/>
+    <app-price-input/>
+  </div>
+
+</section>

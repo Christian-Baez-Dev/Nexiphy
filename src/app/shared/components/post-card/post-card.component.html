@@ -1,0 +1,72 @@
+@if(isLiked()){
+  <div class="heart"></div>
+}
+<div class="heart-container" #heartContainer></div>
+<section #homeCard class="home-card" [ngClass]="{'profile-post': isProfile() ===true}">
+
+  <div class="home-card-header">
+    <ion-avatar>
+      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" >
+    </ion-avatar>
+    <div class="home-card-header-text">
+      <div class="home-card-header-title">
+        <p>
+          Juan Luis Guerra <span>&bull; </span> <span>hace 10 minutos</span>
+        </p>
+      </div>
+      <div class="home-card-header-subtitle">
+        <p>
+          &#64;JLG 4.40
+        </p>
+      </div>
+    </div>
+  </div>
+  <app-carousel />
+
+  <div class="home-card-content">
+    <div class="home-card-content-option">
+      <div class="home-card-content-option-options">
+
+        <svg [ngClass]="{isLikeAnimated:isLiked()}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" (click)="isLiked.set(!isLiked())">
+          <path [ngClass]="{isLike:isLiked()}" d="M11.9999 7.23001C10.2669 3.30601 6.23591 2.95701 4.35891 4.66801C2.82991 6.04101 2.09591 9.33301 3.49191 12.363C5.89991 17.573 11.9999 20.309 11.9999 20.309C11.9999 20.309 18.1009 17.573 20.5079 12.363C21.9039 9.33301 21.1699 6.04101 19.6409 4.66801C17.7639 2.95701 13.7329 3.30701 11.9999 7.23001Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M4.095 20.055L7.266 18.9975L7.821 19.275C9.096 19.911 10.5135 20.25 12 20.25C16.965 20.25 21 16.341 21 12C21 7.659 16.965 3.75 12 3.75C7.035 3.75 3 7.659 3 12C3 13.62 3.585 15.264 4.6605 16.6695L5.178 17.3445L4.0935 20.0535L4.095 20.055ZM3.0345 21.99C2.89876 22.0355 2.75284 22.0412 2.61397 22.0064C2.47511 21.9716 2.3491 21.8978 2.25084 21.7937C2.15257 21.6896 2.08615 21.5595 2.05942 21.4189C2.03269 21.2782 2.04677 21.1329 2.1 21L3.468 17.58C2.22 15.945 1.5 13.989 1.5 12C1.5 7.029 6 2.25 12 2.25C18 2.25 22.5 7.029 22.5 12C22.5 16.971 18 21.75 12 21.75C10.3173 21.7547 8.65666 21.3664 7.1505 20.616L3.0345 21.9885V21.99Z" fill="white"/>
+          <path d="M11.9998 13.2C11.8422 13.2 11.6862 13.169 11.5406 13.1087C11.395 13.0484 11.2627 12.96 11.1513 12.8486C11.0398 12.7371 10.9515 12.6049 10.8911 12.4593C10.8308 12.3137 10.7998 12.1576 10.7998 12C10.7998 11.8425 10.8308 11.6864 10.8911 11.5408C10.9515 11.3952 11.0398 11.263 11.1513 11.1515C11.2627 11.0401 11.395 10.9517 11.5406 10.8914C11.6862 10.8311 11.8422 10.8 11.9998 10.8C12.3181 10.8 12.6233 10.9265 12.8483 11.1515C13.0734 11.3766 13.1998 11.6818 13.1998 12C13.1998 12.3183 13.0734 12.6235 12.8483 12.8486C12.6233 13.0736 12.3181 13.2 11.9998 13.2ZM16.4998 13.2C16.3422 13.2 16.1862 13.169 16.0406 13.1087C15.895 13.0484 15.7627 12.96 15.6513 12.8486C15.5398 12.7371 15.4515 12.6049 15.3911 12.4593C15.3308 12.3137 15.2998 12.1576 15.2998 12C15.2998 11.8425 15.3308 11.6864 15.3911 11.5408C15.4515 11.3952 15.5398 11.263 15.6513 11.1515C15.7627 11.0401 15.895 10.9517 16.0406 10.8914C16.1862 10.8311 16.3422 10.8 16.4998 10.8C16.8181 10.8 17.1233 10.9265 17.3483 11.1515C17.5734 11.3766 17.6998 11.6818 17.6998 12C17.6998 12.3183 17.5734 12.6235 17.3483 12.8486C17.1233 13.0736 16.8181 13.2 16.4998 13.2ZM7.4998 13.2C7.34222 13.2 7.18618 13.169 7.04059 13.1087C6.89499 13.0484 6.76271 12.96 6.65128 12.8486C6.53985 12.7371 6.45145 12.6049 6.39115 12.4593C6.33084 12.3137 6.2998 12.1576 6.2998 12C6.2998 11.8425 6.33084 11.6864 6.39115 11.5408C6.45145 11.3952 6.53985 11.263 6.65128 11.1515C6.76271 11.0401 6.89499 10.9517 7.04059 10.8914C7.18618 10.8311 7.34222 10.8 7.4998 10.8C7.81806 10.8 8.12329 10.9265 8.34833 11.1515C8.57338 11.3766 8.69981 11.6818 8.69981 12C8.69981 12.3183 8.57338 12.6235 8.34833 12.8486C8.12329 13.0736 7.81806 13.2 7.4998 13.2Z" fill="white"/>
+        </svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M20.5 3.5L3.5 9L10 12L17 7L12 14L15 20.5L20.5 3.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="home-card-content-option-save">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21L13.082 17.195C12.7593 16.9874 12.3837 16.877 12 16.877C11.6163 16.877 11.2407 16.9874 10.918 17.195L5 21Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <p class="home-card-content-likes">
+      120,785 likes
+    </p>
+
+    <div class="home-card-content-description">
+      <p class="home-card-content-description-text">
+        {{ isExpanded() ? text() : (text() | truncate: 200) }}
+
+        @if (text().length > 200) {
+          <span class="home-card-content-description-verMas" (click)="toggleText()">
+            {{ isExpanded() ? 'Ver menos' : 'Ver más' }}
+          </span>
+        }
+      </p>
+    </div>
+
+    <comments class="home-card-content-comment" [idPost]="datos()"/>
+
+  </div>
+
+</section>

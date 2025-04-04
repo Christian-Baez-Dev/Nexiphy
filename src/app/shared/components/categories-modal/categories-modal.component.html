@@ -1,0 +1,15 @@
+<section class="categories fondo">
+  <header class="categories-header">
+    <button (click)="close.emit()">Cancelar</button>
+    <h3>Categories</h3>
+  </header>
+
+  <section class="categories-options">
+    @for (value of values(); track value; let index = $index) {
+      <article class="categories-options-option" (click)="valueSelected.emit(value)">
+        <p>{{options()[index] | titlecase}}  </p>
+      </article>
+    }
+  </section>
+
+</section>

@@ -1,0 +1,257 @@
+.home-card-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  width: 100%;
+}
+.profile-post{
+  border-radius: 10px;
+}
+.home-card{
+  position: relative;
+  background-color: #383838;
+}
+ion-avatar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ion-avatar img{
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+.home-card-header-text{
+  flex: 1;
+}
+.home-card-header-title{
+  display: flex;
+  flex-direction: column;
+}
+
+.home-card-header p {
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+}
+
+.home-card-header-title p{
+  color: #FFF;
+  font-weight: 500;
+
+}
+
+.home-card-header-title span{
+  color: #A6A6A6;
+  font-size: 12px;
+  font-weight: 400;
+
+}
+
+
+.home-card-header-subtitle p{
+  color: #C5FF15;
+  font-weight: 400;
+}
+
+
+.home-card-content{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+}
+
+.home-card-content-option{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home-card-content-option-options{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.home-card-content-likes{
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 5px;
+}
+
+.home-card-content-description-text{
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  display: inline-block;
+  line-height: normal !important;
+  margin-top: 10px;
+  transition: all 200ms ease;
+
+}
+
+.home-card-content-description-verMas{
+  background-color: transparent;
+  display: inline;
+  color: #9F9F9F;
+  font-family: Poppins;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.home-card-content-coments{
+  margin-top: 15px;
+  border-bottom: 1px solid #4E4E4E;
+  padding-bottom: 15px;
+}
+
+
+.home-card-content-coments-ver{
+  color: #9F9F9F;
+font-family: Poppins;
+font-size: 11px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.home-card-content-coment{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.home-card-content-coment-input{
+  color: #9F9F9F;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.home-card-content-coment-btn{
+  background-color: transparent;
+  color: #9F9F9F;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.home-card{
+  margin-bottom: 5px;
+}
+.home-card-content-option-options-option{
+  position: relative;
+  height: 40px;
+  width: 40px;
+}
+
+.home-card-content-comment{
+  margin-top: 5px;
+}
+
+.isLike{
+  fill:red;
+  stroke:red;
+
+}
+
+.isLikeAnimated{
+  animation-name: likeAnimation;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes likeAnimation{
+  0%{
+    scale: 0.75;
+  }
+
+  50%{
+    scale: 1.3;
+  }
+
+  100%{
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+
+
+// @keyframes fall {
+//   0% {
+//     transform: translateY(0vh) scale(0.2) ;
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: translateY(100vh) scale(0.9);
+//     opacity: 0;
+//   }
+// }
+
+
+
+// @keyframes wiggle {
+//   0%, 50%,100% { transform: rotate(0deg); }
+//   25% { transform: rotate(-10deg); }
+//   75% { transform: rotate(10deg); }
+// }
+// // .heart {
+// //   position: absolute;
+// //   opacity: 0;
+// //   z-index: 2;
+// //   animation: fall 1s ease;
+
+// // }
+
+
+// .heart {
+//   position: absolute;
+//   z-index: 2;
+//   top: 0;
+//   opacity: 0;
+//   animation: fall 1s ease;
+// }
+
+// .heart::before, .heart::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   width: 52px;
+//   height: 80px;
+//   border-radius: 50px 50px 0 0;
+//   background: red;
+// }
+
+// .heart::before {
+//   left: 50px;
+//   transform: rotate(-45deg);
+//   transform-origin: 0 100%;
+// }
+
+// .heart::after {
+//   left: 0;
+//   transform: rotate(45deg);
+//   transform-origin: 100% 100%;
+// }
+

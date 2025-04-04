@@ -10,7 +10,7 @@
 
       <div class="create-coment-text">
         <p>AnabelTurbi</p>
-        <textarea name="" id="" placeholder="¿Qué novedades tienes?"></textarea>
+        <textarea #contentTxt name="" id="" placeholder="¿Qué novedades tienes?" (input)="content.set(contentTxt.value)"></textarea>
       </div>
     </div>
 
@@ -65,7 +65,7 @@
         </svg>
       </div>
 
-      <button>Publicar</button>
+      <button (click)="onClick()">Publicar</button>
     </div>
 
 </article>

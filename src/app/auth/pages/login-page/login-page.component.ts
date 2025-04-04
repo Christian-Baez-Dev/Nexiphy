@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { RouterLink } from '@angular/router';
 

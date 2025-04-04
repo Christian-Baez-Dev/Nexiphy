@@ -1,6 +1,11 @@
 <main class="fondo fondo-home" >
 
   <router-outlet/>
+  @if(componentsHomeService.isCreateOpen()){
+    <div class="modal-div">
+      <app-create-post style="z-index: 10; pointer-events: auto;" (close)="componentsHomeService.isCreateOpen.set(false)"/>
+    </div>
+  }
   <app-nav-bar class="nav-bar-app"/>
 </main>
 

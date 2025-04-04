@@ -3,12 +3,12 @@ import { Component, computed, input, linkedSignal, OnInit, signal } from '@angul
 import { IonicModule } from '@ionic/angular';
 
 @Component({
-  selector: 'app-coment',
+  selector: 'app-comment',
   templateUrl: './coment.component.html',
   styleUrls: ['./coment.component.scss'],
   imports:[IonicModule, NgClass]
 })
-export class ComentComponent  implements OnInit {
+export class CommentComponent  implements OnInit {
   toggleExpanded() {
     if(this.isExpanded()){
       this.isExpanded.set(false)

@@ -19,8 +19,12 @@ export const routes: Routes = [
         loadChildren: () => import('./market-place/market-place.routes'),
       },
       {
-        path: 'profile',
-        loadChildren: () => import('./market-place/market-place.routes'),
+        path: 'social-profile',
+        loadChildren: () => import('./profile/profile.routes'),
+      },
+      {
+        path: 'notifications',
+        loadChildren: () => import('./notifications/notification.routes')
       },
     ]
   },
