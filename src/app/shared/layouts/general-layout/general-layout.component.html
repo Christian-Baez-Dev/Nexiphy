@@ -1,10 +1,23 @@
 <main class="fondo fondo-home" >
 
   <router-outlet/>
-  @if(componentsHomeService.isCreateOpen()){
+  @if(componentsHomeService.isCreateOpen() || componentsHomeService.isMessageModalOpen()){
     <div class="modal-div">
-      <app-create-post style="z-index: 10; pointer-events: auto;" (close)="componentsHomeService.isCreateOpen.set(false)"/>
+      @if (componentsHomeService.isCreateOpen()) {
+        <app-create-post
+        style="z-index: 10; pointer-events: auto;"
+        (close)="onCloseCreate($event)"/>
+    }
+
+    @if(componentsHomeService.isMessageModalOpen()){
+      <app-message-modal
+      style="z-index: 10; pointer-events: auto;"
+      [type]="componentsHomeService.typeModalMessage()"
+      [message]="componentsHomeService.messageModalMessage()"
+      (close)="componentsHomeService.isMessageModalOpen.set(false)"/>
+    }
     </div>
+
   }
   <app-nav-bar class="nav-bar-app"/>
 </main>

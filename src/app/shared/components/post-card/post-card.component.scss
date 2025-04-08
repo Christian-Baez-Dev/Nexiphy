@@ -11,7 +11,7 @@
 }
 .home-card{
   position: relative;
-  background-color: #383838;
+  background-color: #1b1b1b;
 }
 ion-avatar{
   display: flex;
@@ -111,49 +111,6 @@ ion-avatar img{
   margin-left: 5px;
 }
 
-.home-card-content-coments{
-  margin-top: 15px;
-  border-bottom: 1px solid #4E4E4E;
-  padding-bottom: 15px;
-}
-
-
-.home-card-content-coments-ver{
-  color: #9F9F9F;
-font-family: Poppins;
-font-size: 11px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-}
-
-.home-card-content-coment{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.home-card-content-coment-input{
-  color: #9F9F9F;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.home-card-content-coment-btn{
-  background-color: transparent;
-  color: #9F9F9F;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
 
 .home-card{
   margin-bottom: 5px;
@@ -168,33 +125,6 @@ line-height: normal;
   margin-top: 5px;
 }
 
-.isLike{
-  fill:red;
-  stroke:red;
-
-}
-
-.isLikeAnimated{
-  animation-name: likeAnimation;
-  animation-duration: 400ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes likeAnimation{
-  0%{
-    scale: 0.75;
-  }
-
-  50%{
-    scale: 1.3;
-  }
-
-  100%{
-    opacity: 1;
-    scale: 1;
-  }
-}
 
 
 

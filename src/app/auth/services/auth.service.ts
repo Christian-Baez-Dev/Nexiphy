@@ -1,9 +1,9 @@
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal, effect } from '@angular/core';
 import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
 import { CreatePostComponent } from 'src/app/home/components/create-post/create-post.component';
 import { ApiResponse } from 'src/app/interfaces/generic.interface';
-import { UserDto } from 'src/app/interfaces/user.interface';
+import { UserDto, UserInitialState } from 'src/app/interfaces/user.interface';
 import { environment } from 'src/environments/environment';
 import { AuthStatus, LoginRequest, RegisterRequest } from '../interfaces/auth.interface';
 
@@ -12,13 +12,12 @@ import { AuthStatus, LoginRequest, RegisterRequest } from '../interfaces/auth.in
 })
 export class AuthService {
 
-  private _api_url = environment.api_Url + '/auth'
+  private _api_url = environment.api_Url
   private _httpClient = inject(HttpClient)
-  private _user = signal<UserDto | null >(null)
+  private _user = signal<UserDto>(JSON.parse(localStorage.getItem('user')!))
   private _authStatus = signal<AuthStatus>('checking')
 
-
-  user = computed<UserDto | null>(() => this._user())
+  user = computed<UserDto>(() => this._user())
 
   authStatus = computed<AuthStatus>(() => {
     if(this._authStatus() === 'checking') return 'checking'
@@ -31,29 +30,32 @@ export class AuthService {
 
 
   login(user: LoginRequest): Observable<ApiResponse<UserDto>>{
+    console.log(user)
     return this._httpClient
-    .post<ApiResponse<UserDto>>(this._api_url+'/login',user,{observe:'response',withCredentials: true})
+    .post<ApiResponse<UserDto>>(this._api_url+'/auth/login',user,{observe:'response',withCredentials: true})
     .pipe(
       map((response: HttpResponse<any>) =>{
         return {
           message: response.body.message,
           statusCode: response.status,
           hasError: false,
-          isSucces: true,
-          data:response.body.user
+          isSuccess: true,
+          data:response.body.userData
         }
       }),
       tap(response =>{
         this._user.set(response.data)
+        localStorage.setItem('user', response.data)
         this._authStatus.set('authenticated')
       }),
       catchError((error: HttpErrorResponse) => {
-        this._user.set(null)
+        this._user.set(UserInitialState)
+        localStorage.removeItem('user')
         this._authStatus.set('not-authenticated')
         return of({
           statusCode: error.status,
           hasError: true,
-          isSucces: false,
+          isSuccess: false,
           errorMessage: error.message
         });
       })
@@ -62,30 +64,35 @@ export class AuthService {
 
 
   register(user: RegisterRequest): Observable<ApiResponse<UserDto>>{
+    console.log(user)
     return this._httpClient
-    .post<ApiResponse<UserDto>>(this._api_url+'/register',user,{observe:'response'})
+    .post<ApiResponse<UserDto>>(this._api_url+'/user/register',user,{withCredentials: true,observe:'response'})
     .pipe(
       map((response: HttpResponse<any>) =>{
+        console.log(response)
         return {
           message: response.body.message,
           statusCode: response.status,
           hasError: false,
-          isSucces: true,
-          data:response.body.user
+          isSuccess: true,
+          data:response.body.userData
         }
       }),
       tap(response =>{
         this._user.set(response.data)
+        localStorage.setItem('user', response.data)
         this._authStatus.set('authenticated')
       }),
       catchError((error: HttpErrorResponse) => {
-        this._user.set(null)
+        this._user.set(UserInitialState)
+        localStorage.removeItem('user')
         this._authStatus.set('not-authenticated')
+        console.log(error)
         return of({
-          statusCode: error.status,
+          statusCode: error.error.status,
           hasError: true,
-          isSucces: false,
-          errorMessage: error.message
+          isSuccess: false,
+          errorMessage: error.error.message
         });
       })
     )
@@ -93,9 +100,16 @@ export class AuthService {
 
   checkStatus():Observable<boolean>{
     return this._httpClient
-    .get(this._api_url + '/validate', {withCredentials:true})
+    .get(this._api_url + '/auth/validate', {withCredentials:true, observe:'response'})
     .pipe(
-      map(respose =>true),
+      map((response: HttpResponse<any>) =>{
+        if(response.body.isValid)
+          return true
+        else{
+          this.logout()
+          return false
+        }
+      }),
       catchError((error: HttpErrorResponse) => {
         this.logout()
         return of(false);
@@ -103,8 +117,26 @@ export class AuthService {
     )
   }
 
-  logout(){
-    this._user.set(null)
+  logout():Observable<{success:boolean}>{
+    return this._httpClient.post(this._api_url+'/auth/logout',{}, {withCredentials: true, observe:'response'})
+    .pipe(
+      map((response: HttpResponse<any>) =>{
+        console.log(response)
+
+        if(response.body.success)
+        {
+          this.resetData()
+          return {success :true}
+        }
+        else return {success :false}
+      } ),
+
+    )
+  }
+
+  private resetData(){
+    localStorage.removeItem('user')
+    this._user.set(UserInitialState)
     this._authStatus.set('not-authenticated')
   }
 }

@@ -1,7 +1,9 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, effect, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ComponentsHomeServiceService } from '../../../services/components-home-service.service';
+import { AuthService } from '../../../auth/services/auth.service';
+import { User, UserDto } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,11 +15,14 @@ export class NavBarComponent  implements OnInit {
   router = inject(Router)
   positionLine = signal<number>(0)
   withLine = signal<number>(67)
-
+  authService =  inject(AuthService)
   componentsHomeServiceService = inject(ComponentsHomeServiceService)
 
+  img = signal<string>('')
+  user : UserDto = JSON.parse(localStorage.getItem('user')!)
+
+
   goToMessages() {
-    console.log('navigate')
     this.router.navigate(['messages'])
   }
 
@@ -54,6 +59,7 @@ export class NavBarComponent  implements OnInit {
   ]
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

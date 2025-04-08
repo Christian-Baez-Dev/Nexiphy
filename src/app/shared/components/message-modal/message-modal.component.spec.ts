@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { GeneralLayoutComponent } from './general-layout.component';
+import { MessageModalComponent } from './message-modal.component';
 
-describe('GeneralLayoutComponent', () => {
-  let component: GeneralLayoutComponent;
-  let fixture: ComponentFixture<GeneralLayoutComponent>;
+describe('MessageModalComponent', () => {
+  let component: MessageModalComponent;
+  let fixture: ComponentFixture<MessageModalComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ GeneralLayoutComponent ],
+      declarations: [ MessageModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GeneralLayoutComponent);
+    fixture = TestBed.createComponent(MessageModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

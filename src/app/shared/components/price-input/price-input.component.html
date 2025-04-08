@@ -1,3 +1,9 @@
-<p>
-  price-input works!
-</p>
+<section class="price">
+  <app-select text="Precio" (toggle)="isOpen.set(!isOpen())"/>
+
+  <div class="price-inputs" [ngClass]="{'open': isOpen()}">
+    <input type="number" placeholder="Min.">
+    <p>a</p>
+    <input type="number" placeholder="Max.">
+  </div>
+</section>

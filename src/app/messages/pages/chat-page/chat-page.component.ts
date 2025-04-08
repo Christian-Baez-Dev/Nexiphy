@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
 import { ChatHeaderComponent } from "./chat-header/chat-header.component";
+
 
 @Component({
   selector: 'app-chat-page',
@@ -7,10 +8,18 @@ import { ChatHeaderComponent } from "./chat-header/chat-header.component";
   styleUrls: ['./chat-page.component.scss'],
   imports: [ChatHeaderComponent],
 })
-export default class ChatPageComponent  implements OnInit {
+export default class ChatPageComponent  implements OnInit,AfterViewInit {
 
+
+  chat = viewChild<ElementRef>('chat')
   constructor() { }
 
-  ngOnInit() {}
+  ngAfterViewInit() {
+    this.chat()!.nativeElement.scrollTop = this.chat()!.nativeElement.scrollHeight
+  }
+
+  ngOnInit() {
+
+  }
 
 }

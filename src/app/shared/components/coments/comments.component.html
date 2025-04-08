@@ -1,13 +1,7 @@
 <div class="home-card-content-coments">
-  <p class="home-card-content-coments-ver" [id]="idPost()">
-    Ver 200,902 comentarios
+  <p class="home-card-content-coments-ver" [id]="previewComment().postId">
+    Ver {{previewComment().commentCount | truncateNumber}} comentarios
   </p>
 </div>
-<app-comments-modal [trigger]="idPost()"/>
+<app-comments-modal [trigger]="previewComment().postId"/>
 
-<div class="home-card-content-coment">
-
-
-  <input placeholder="Escribe un comentario..." type="text" class="home-card-content-coment-input">
-  <button class="home-card-content-coment-btn">Enviar</button>
-</div>

@@ -6,22 +6,22 @@
 
   <div class="home-card-header">
     <ion-avatar>
-      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" >
+      <img [src]="datos().author.avatar" >
     </ion-avatar>
     <div class="home-card-header-text">
       <div class="home-card-header-title">
         <p>
-          Juan Luis Guerra <span>&bull; </span> <span>hace 10 minutos</span>
+          {{datos().author.fullname}} <span>&bull; </span> <span>{{datos().created_at | timeAgo }}</span>
         </p>
       </div>
       <div class="home-card-header-subtitle">
         <p>
-          &#64;JLG 4.40
+          &#64;{{datos().author.username}}
         </p>
       </div>
     </div>
   </div>
-  <app-carousel />
+  <app-carousel [imgUrls]="datos().images"/>
 
   <div class="home-card-content">
     <div class="home-card-content-option">
@@ -50,14 +50,14 @@
     </div>
 
     <p class="home-card-content-likes">
-      120,785 likes
+      {{datos().likesCount! | truncateNumber}} likes
     </p>
 
     <div class="home-card-content-description">
       <p class="home-card-content-description-text">
-        {{ isExpanded() ? text() : (text() | truncate: 200) }}
+        {{ isExpanded() ? datos().content : (datos().content | truncate: 200) }}
 
-        @if (text().length > 200) {
+        @if (datos().content.length > 200) {
           <span class="home-card-content-description-verMas" (click)="toggleText()">
             {{ isExpanded() ? 'Ver menos' : 'Ver más' }}
           </span>
@@ -65,7 +65,7 @@
       </p>
     </div>
 
-    <comments class="home-card-content-comment" [idPost]="datos()"/>
+    <comments class="home-card-content-comment" [previewComment]="{postId: datos().id,commentCount:datos().commentCount}"/>
 
   </div>
 

@@ -13,9 +13,6 @@ export class FilterComponent  implements OnInit {
   close = output()
   value = signal<any>('')
 
-  efecto = effect(() =>{
-    console.log(this.value())
-  })
   constructor() { }
 
   ngOnInit() {}

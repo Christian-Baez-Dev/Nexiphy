@@ -16,7 +16,7 @@ export class CreatePostComponent  implements OnInit {
   protected content = signal<string>('')
 
 
-  close = output<void>()
+  close = output<boolean | null>()
 
   inputFile = viewChild<ElementRef>('inputFile')
 
@@ -44,11 +44,12 @@ export class CreatePostComponent  implements OnInit {
     this.postService.createPost(data).subscribe({
       next: (resp) => {
         console.log('Respuesta exitosa:', resp);
-        this.close.emit()
+        this.close.emit(true)
       },
       error: (err) => {
         console.error('Error del backend:', err);
-        alert(`Error: ${err || 'Ocurrió un error inesperado'}`);
+        this.close.emit(false)
+
       }
     });
   }

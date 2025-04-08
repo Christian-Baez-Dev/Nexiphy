@@ -21,14 +21,14 @@
   </section>
 
   @if(categoriesIsOpen()){
-    <div class="modal-div">
-      <app-categories-modal class="home-categories" (close)="categoriesIsOpen.set(false)"/>
+    <div class="modal-div ">
+      <app-categories-modal class="home-categories grow" (close)="categoriesIsOpen.set(false)"/>
     </div>
   }
 
   @if(filterIsOpen()){
-    <div class="modal-div">
-      <app-filter class="home-filter" (close)="filterIsOpen.set(false)"/>
+    <div class="modal-div ">
+      <app-filter class="home-filter grow" (close)="filterIsOpen.set(false)" />
     </div>
   }
 

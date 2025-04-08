@@ -1,8 +1,32 @@
 .home{
   position: relative;
-
-
   width: 100vw;
+  padding-bottom: 60px;
+
+  &-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+
+    animation-name: hiding ;
+    animation-timing-function: linerar;
+    animation-fill-mode: forwards;
+    animation-timeline: view();
+    animation-range: exit 0% 100%; /* se activa desde que empieza a salir hasta que termina de salir */
+
+    img{
+      width: 40vw;
+    }
+    &-options{
+      display: flex;
+      flex-direction: row;
+      width: 18vw;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 
 
   &-create{
@@ -21,9 +45,10 @@
 
     background-color: rgba(0, 0, 0,0.7);
     backdrop-filter: blur(1px);
-
-
   }
+
+
+
 }
 
 
@@ -33,3 +58,29 @@
   height: 0;
   pointer-events: none;
 }
+
+
+@keyframes hiding {
+
+  to{
+    border-bottom: 1px solid #444444;
+    opacity: .4;
+  }
+}
+
+// .post-card{
+//   scale: .5;
+//   opacity: 0;
+
+//   animation: aja linear;
+//   animation-timeline: view(85% 0px);
+//   animation-fill-mode: forwards;
+
+// }
+
+// @keyframes aja {
+//   to{
+//     scale: 1;
+//     opacity: 1;
+//   }
+// }

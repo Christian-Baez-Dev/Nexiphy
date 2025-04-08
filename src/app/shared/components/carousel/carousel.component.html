@@ -1,59 +1,24 @@
 <div class="div-carouser-container">
 
-  <div class="navigation-div">
-    <button (click)="swiper.swiper.slidePrev()" [disabled]="swiper.swiper.isBeginning" class="btn-navigation">
-      <i class="fa-regular fa-angle-left"></i>
-    </button>
-    <button (click)="swiper.swiper.slideNext()" [disabled]="swiper.swiper.isEnd" class="btn-navigation">
-      <i class="fa-regular fa-angle-right"></i>
-    </button>
-  </div>
+  @if(imgUrls().length > 1){
+      <button (click)="swiper.swiper.slidePrev()" [disabled]="swiper.swiper.isBeginning" class="btn-navigation Prev">
+        <i class="fa-regular fa-angle-left"></i>
+      </button>
+      <button (click)="swiper.swiper.slideNext()" [disabled]="swiper.swiper.isEnd" class="btn-navigation Next">
+        <i class="fa-regular fa-angle-right"></i>
+      </button>
+
+  }
+
 
   <swiper-container class="swipper-class" [slides-per-view]="1" pagination="true" #swiper>
+    @for (img of imgUrls(); track $index) {
+      <swiper-slide>
+        <img [src]="img" />
+      </swiper-slide>
+    }
 
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Burger" />
-    </swiper-slide>
 
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp" alt="Burger" />
-    </swiper-slide>
-
-    <swiper-slide>
-      <img src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp" alt="Burger" />
-    </swiper-slide>
 
   </swiper-container>
 

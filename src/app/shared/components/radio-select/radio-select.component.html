@@ -1,7 +1,7 @@
 <section class="radio">
   <app-select text="Ordenar por" (toggle)="isOpen.set(!isOpen())"/>
 
-  <div class="radio-options" [ngClass]="{'open': isOpen(), 'close': !isOpen()}">
+  <div class="radio-options" [ngClass]="{'open': isOpen()}">
 
     @for (value of values(); track value; let index = $index) {
       <label>

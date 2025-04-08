@@ -41,7 +41,19 @@ img{
   width: 25px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.82);
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
 
+}
+
+.Prev{
+  left: 10px;
+}
+
+.Next{
+  right: 10px;
 }
 
 .btn-navigation:disabled{

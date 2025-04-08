@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { NoAuthGuard } from './guards/no-auth.guard';
+import { IsAuthGuard } from './guards/is-auth.guard';
 
 export const routes: Routes = [
   {
@@ -7,8 +9,9 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'nexiphy',
     loadComponent: () => import('./shared/layouts/general-layout/general-layout.component'),
+    canMatch:[IsAuthGuard],
     children: [
       {
         path: 'home',
@@ -26,19 +29,27 @@ export const routes: Routes = [
         path: 'notifications',
         loadChildren: () => import('./notifications/notification.routes')
       },
-    ]
+    ],
+
+
+
   },
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.routes'),
+    canMatch: [
+      NoAuthGuard
+    ]
   },
   {
     path: 'messages',
     loadChildren: () => import('./messages/messages.routes'),
+    canMatch:[IsAuthGuard],
+
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'nexiphy/home',
     pathMatch: 'full'
   },
 

@@ -18,14 +18,7 @@ export class CommentComponent  implements OnInit {
     this.isExpanded.set(true)
   }
 
-  toggleLike() {
-    if(this.hasLike()){
-      this.hasLike.set(false)
-      return
-    }
-
-    this.hasLike.set(true)
-  }
+  isLiked = signal<boolean>(false)
   hasComent = input.required<boolean>()
   hasLike = signal<boolean>(false)
 

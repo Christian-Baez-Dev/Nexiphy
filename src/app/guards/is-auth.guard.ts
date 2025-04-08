@@ -3,7 +3,7 @@ import { CanMatchFn, Route, Router, UrlSegment } from '@angular/router';
 import { AuthService } from '../auth/services/auth.service';
 import { firstValueFrom } from 'rxjs';
 
-export const NoAuthGuard: CanMatchFn = async(
+export const IsAuthGuard: CanMatchFn = async(
   route: Route,
   segments: UrlSegment[]
 ) => {
@@ -13,9 +13,8 @@ export const NoAuthGuard: CanMatchFn = async(
 
   const isAuthenticated = await firstValueFrom(authService.checkStatus())
   console.log(isAuthenticated)
-
-  if(isAuthenticated){
-    router.navigate(['/nexiphy/home'])
+  if(isAuthenticated === false){
+    router.navigate(['/auth'])
     return false
   }
 

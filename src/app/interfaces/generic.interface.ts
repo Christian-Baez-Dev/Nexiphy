@@ -2,7 +2,7 @@ export interface ApiResponse<T>{
   message?: string
   statusCode: number
   hasError: boolean
-  isSucces: boolean
+  isSuccess: boolean
   errorMessage?: string
   data?:T
 }

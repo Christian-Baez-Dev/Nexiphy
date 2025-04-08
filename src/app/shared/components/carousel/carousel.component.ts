@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, input, effect } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
@@ -11,6 +11,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 })
 export class CarouselComponent  implements OnInit {
+  imgUrls = input.required<string[]>()
 
   constructor() { }
 

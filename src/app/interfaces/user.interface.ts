@@ -1,6 +1,21 @@
 export interface UserDto{
-  userName: string
-  fullName: string
-  imgUrl: string
+  username: string
+  fullname: string
+  imagUrl: string
   roles: string[]
 }
+
+export const UserInitialState:UserDto = {
+  username: "",
+  fullname: "",
+  imagUrl: "",
+  roles: []
+}
+
+export interface User {
+  id:       string;
+  fullname: string;
+  username: string;
+  avatar?:   string;
+}
+

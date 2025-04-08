@@ -37,6 +37,33 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 
+.isLike{
+  fill:red;
+  stroke:red;
+
+}
+
+.isLikeAnimated{
+  animation-name: likeAnimation;
+  animation-duration: 400ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes likeAnimation{
+  0%{
+    scale: 0.75;
+  }
+
+  50%{
+    scale: 1.3;
+  }
+
+  100%{
+    opacity: 1;
+    scale: 1;
+  }
+}
 
 
 .input-custom
@@ -44,7 +71,7 @@
   background-color: #3D3D3D;
   border-radius: 10px;
   border: 1px solid #5B5B5B;
-  padding: 8px 15px;
+  padding: 10px 15px;
   border: 1px solid #5B5B5B;
   color: #e0e0e0;
   font-family: Poppins;
@@ -67,8 +94,84 @@
   border: none;
   background-color: #3D3D3D;
 }
+.togglePass{
+  margin-right: 0 !important;
+  margin-left: 15px;
+  position: relative;
+  display: inline-flex; /* asegura que se adapte al contenido */
+  color: #A6A6A6;
+}
+
+.togglePassNo{
+  &::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(0); /* <-- rotación movida aquí */
+    height: 2px;
+    width: 150%;
+    background-color: #A6A6A6;
+    pointer-events: none;
+    animation-name: togglePassAnimation;
+    animation-timing-function: ease-in-out;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+
+  }
+}
+
+.remove{
+  &::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(0); /* <-- rotación movida aquí */
+    height: 2px;
+    width: 150%;
+    background-color: #A6A6A6;
+    pointer-events: none;
+    animation-name: togglePassAnimationReverse;
+    animation-timing-function: ease-in-out;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+
+
+  }
+}
+
+@keyframes togglePassAnimation{
+  0%{
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(0);
+
+  }
+
+  100%{
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);
+  }
+}
+
+@keyframes togglePassAnimationReverse{
+  0%{
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);
+
+  }
+
+  100%{
+    transform: translate(-50%, -50%) rotate(-45deg) scaleX(0);
+
+  }
+}
+.input-with-icon svg{
+  margin-right: 15px;
+}
+
+.input-with-icon i{
+  margin-right: 15px;
+}
 .fondo{
-  background-color: #303030;
+  background-color: #1b1b1b;
   height: 100vh;
   width: 100vw;
 }
@@ -138,6 +241,24 @@ p{
     font-weight: 400;
     line-height: normal;
   }
+}
+@keyframes growEffect {
+  0% {
+    transform: scale(0.2); /* Comienza pequeño */
+  }
+
+  95%{
+    transform: scale(1.09); /* Comienza pequeño */
+
+  }
+  100% {
+    transform: scale(1); /* Finaliza en su tamaño normal */
+  }
+}
+
+/* Aplicamos la animación al contenedor */
+.grow {
+  animation: growEffect 200ms ease ; /* La animación dura 1 segundo */
 }
 
 

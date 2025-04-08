@@ -1,23 +1,6 @@
 /* Definimos la animación de apertura */
 /* Definimos la animación de "crecer" */
-@keyframes growEffect {
-  0% {
-    transform: scale(0.2); /* Comienza pequeño */
-  }
 
-  95%{
-    transform: scale(1.09); /* Comienza pequeño */
-
-  }
-  100% {
-    transform: scale(1); /* Finaliza en su tamaño normal */
-  }
-}
-
-/* Aplicamos la animación al contenedor */
-.grow {
-  animation: growEffect 200ms ease ; /* La animación dura 1 segundo */
-}
 .create{
   position: relative;
   width: 95vw;
