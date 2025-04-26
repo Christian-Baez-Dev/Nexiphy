@@ -1,4 +1,4 @@
-import { Component, computed, effect, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
+import { Component, computed, effect, ElementRef, inject, InjectionToken, OnInit, signal, viewChild } from '@angular/core';
 import { CustomSelectForInputComponent } from "../../../shared/components/custom-select-for-input/custom-select-for-input.component";
 import { BackComponent } from "../../../shared/components/back/back.component";
 import { CustomSelectComponent } from "../../../shared/components/custom-select/custom-select.component";
@@ -12,6 +12,8 @@ import { Currency } from 'src/app/interfaces/currency.interface';
 import { LocationI } from 'src/app/interfaces/location.interface';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AnnouncementService } from 'src/app/services/announcement.service';
+import { ComponentsHomeServiceService } from 'src/app/services/components-home-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-announcement',
@@ -20,7 +22,8 @@ import { AnnouncementService } from 'src/app/services/announcement.service';
   imports: [CustomSelectForInputComponent, BackComponent, CustomSelectComponent, AddImagesSliderComponent, ReactiveFormsModule],
 })
 export default class CreateAnnouncementComponent  implements OnInit {
-
+  private componentService = inject(ComponentsHomeServiceService)
+  private router = inject(Router)
   private fb = inject(FormBuilder)
   myForm =  this.fb.group({
     title: ['', [Validators.required]],
@@ -188,7 +191,19 @@ export default class CreateAnnouncementComponent  implements OnInit {
         data.append('images',file)
       })
 
-      this.announcementService.create(data)
+      this.announcementService.create(data).subscribe(response =>{
+        if(response.status === 201){
+          this.componentService.isMessageModalOpen.set(true)
+          this.componentService.typeModalMessage.set('Success')
+          this.componentService.messageModalMessage.set('El anuncio se ha creado correctamente')
+        }else{
+          this.componentService.isMessageModalOpen.set(true)
+          this.componentService.typeModalMessage.set("Warning")
+          this.componentService.messageModalMessage.set('Ha ocurrido un error. Por favor intentelo mas tarde')
+        }
+
+        this.router.navigate(['/marketplace'])
+      })
     }
   }
 
