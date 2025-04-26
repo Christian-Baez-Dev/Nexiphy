@@ -19,7 +19,6 @@ export class NavBarComponent  implements OnInit {
   componentsHomeServiceService = inject(ComponentsHomeServiceService)
 
   img = signal<string>('')
-  user : UserDto = JSON.parse(localStorage.getItem('user')!)
 
 
   goToMessages() {
@@ -60,6 +59,7 @@ export class NavBarComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
