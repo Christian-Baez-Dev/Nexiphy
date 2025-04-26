@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ComentComponent } from './coment.component';
+import { CustomSelectForInputComponent } from './custom-select-for-input.component';
 
-describe('ComentComponent', () => {
-  let component: ComentComponent;
-  let fixture: ComponentFixture<ComentComponent>;
+describe('CustomSelectForInputComponent', () => {
+  let component: CustomSelectForInputComponent;
+  let fixture: ComponentFixture<CustomSelectForInputComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComentComponent ],
+      declarations: [ CustomSelectForInputComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ComentComponent);
+    fixture = TestBed.createComponent(CustomSelectForInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

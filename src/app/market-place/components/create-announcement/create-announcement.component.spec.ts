@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ComentsModalComponent } from './coments-modal.component';
+import { CreateAnnouncementComponent } from './create-announcement.component';
 
-describe('ComentsModalComponent', () => {
-  let component: ComentsModalComponent;
-  let fixture: ComponentFixture<ComentsModalComponent>;
+describe('CreateAnnouncementComponent', () => {
+  let component: CreateAnnouncementComponent;
+  let fixture: ComponentFixture<CreateAnnouncementComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComentsModalComponent ],
+      declarations: [ CreateAnnouncementComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ComentsModalComponent);
+    fixture = TestBed.createComponent(CreateAnnouncementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -1,6 +1,8 @@
 <article class="post">
-  <img class="post-img" src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp" alt="">
-  <p  class="post-price">Gratis</p>
-  <p class="post-title">Mazda Demio 2014</p>
-  <address class="post-addres">Charles de Gaulle, Santo Domingo</address>
+  <div class="post-img">
+    <img  [src]="announcement().images[0]" alt="">
+  </div>
+  <p  class="post-price">{{announcement().currency.symbol}}{{announcement().price | currency :'':''}}</p>
+  <p class="post-title">{{announcement().title}}</p>
+  <address class="post-addres">{{announcement().municipality.name}}, {{announcement().municipality.province.name}}</address>
 </article>

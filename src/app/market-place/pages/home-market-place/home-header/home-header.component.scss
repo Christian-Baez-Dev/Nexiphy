@@ -1,3 +1,4 @@
+@import "src/theme/variables.scss";
 .header{
   position: relative;
 
@@ -6,7 +7,7 @@
   align-items: center;
   height: 70px;
   padding: 0 20px;
-  background-color: #1b1b1b;
+  background-color: $primary-color;
 
 
   &-title{
@@ -20,17 +21,16 @@
     margin-left: 15px;
     flex: 1;
   }
-  &-search{
-    position: relative;
-    right: 9;
+  &-options{
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-
-    border-radius: 50%;
-    background-color: #C5FF15;
-
+    gap: 25px;
+    i{
+      font-size: 23px;
+    }
+    
   }
+
 }

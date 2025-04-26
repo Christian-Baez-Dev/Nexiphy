@@ -1,0 +1,77 @@
+.selectForInput{
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+
+  &-selection{
+    background-color: #3D3D3D;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #5B5B5B;
+    padding: 10px 15px;
+    border: 1px solid #5B5B5B;
+    display: flex;
+    align-items: center;
+    width: 100%;
+     p{
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      outline: none;
+      font-family: 'Poppins';
+      font-size: 14px;
+     }
+  }
+
+  &-options{
+    background-color: #3D3D3D;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    border-radius: 0px 0px 10px 10px;
+    max-height: 0;
+    opacity: 1;
+    transition: max-height 150ms ease;
+    &-option{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      width: 100%;
+      padding: 7px 13px ;
+
+      p{
+        font-family: 'Poppins';
+        font-size: 14px;
+       }
+    }
+  }
+
+}
+
+.selection-in-open{
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: none;
+}
+
+
+.open{
+  height: auto;
+  max-height: 150px;
+  opacity: 1;
+  overflow: auto;
+  border: 1px solid #5B5B5B;
+}
+
+
+.placeholder{
+  color: #aaa;
+  font-size: 14px !important;
+}

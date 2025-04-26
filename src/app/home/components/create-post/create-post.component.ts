@@ -4,6 +4,7 @@ import { AddImagesSliderComponent } from "../../../shared/components/add-images-
 import { trigger, transition, style, animate } from '@angular/animations';
 import { PostService } from 'src/app/services/post.service';
 import { NgModel, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-create-post',
@@ -14,7 +15,7 @@ import { NgModel, ReactiveFormsModule } from '@angular/forms';
 export class CreatePostComponent  implements OnInit {
   private postService = inject(PostService)
   protected content = signal<string>('')
-
+  protected authservice = inject(AuthService)
 
   close = output<boolean | null>()
 
@@ -24,10 +25,6 @@ export class CreatePostComponent  implements OnInit {
 
   protected imgFiles = signal<File[]>([])
 
-  efecto = effect(()=>{
-    console.log(this.content())
-    console.log(this.imgFiles())
-  })
 
 
   constructor() { }

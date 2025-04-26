@@ -1,29 +1,28 @@
+@import "src/theme/variables.scss";
 .custom-modal {
   --height: 100vh;
   --border-radius: 40px; /* Aplica el borde redondeado */
   --background: #1b1b1b;
+  z-index: -1;
 }
 
 
-.custom-modal::part(content) {
-  overflow: scroll; /* Evita que el contenido sobresalga */
-}
 
 
 
 .custom-modal-container{
-  overflow-y: scroll;
+  overflow-y: none;
   padding: 0px 20px;
   padding-bottom: 15px;
   height: 100vh;
 }
 .custom-modal-container-title{
-  background-color: transparent;
+  width: 100%;
+  background-color: $primary-color;
   text-align: center;
   font-size: 14px;
   font-weight: 400;
   font-family: 'Poppins';
-  position: sticky !important;
   padding: 25px 0;
   top: 0;
   z-index: 2;
@@ -40,4 +39,32 @@ ion-avatar::part(image) {
 
 .custom-modal-container-coments{
   position: relative;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  -webkit-overflow-scrolling: touch;
+
+}
+
+.custom-modal-input{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+
+  textarea{
+    padding: 5px 15px;
+  }
+
+  i{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 20px;
+  }
+
+
 }

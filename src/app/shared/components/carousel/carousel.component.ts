@@ -12,7 +12,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 })
 export class CarouselComponent  implements OnInit {
   imgUrls = input.required<string[]>()
-
+  navigation = input<boolean>(true)
   constructor() { }
 
   ngOnInit() {}

@@ -9,7 +9,14 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'nexiphy',
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.routes'),
+    canMatch: [
+      NoAuthGuard
+    ]
+  },
+  {
+    path: '',
     loadComponent: () => import('./shared/layouts/general-layout/general-layout.component'),
     canMatch:[IsAuthGuard],
     children: [
@@ -22,7 +29,7 @@ export const routes: Routes = [
         loadChildren: () => import('./market-place/market-place.routes'),
       },
       {
-        path: 'social-profile',
+        path: 'social-profile/:userName',
         loadChildren: () => import('./profile/profile.routes'),
       },
       {
@@ -34,22 +41,21 @@ export const routes: Routes = [
 
 
   },
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.routes'),
-    canMatch: [
-      NoAuthGuard
-    ]
-  },
+
   {
     path: 'messages',
     loadChildren: () => import('./messages/messages.routes'),
     canMatch:[IsAuthGuard],
 
   },
+  { path: 'announcement/:code',
+    loadComponent: () => import('./shared/pages/product-page/product-page.component'),
+    canMatch:[IsAuthGuard],
+
+  },
   {
     path: '**',
-    redirectTo: 'nexiphy/home',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
 

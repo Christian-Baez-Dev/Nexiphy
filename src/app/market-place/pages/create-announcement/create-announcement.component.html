@@ -1,0 +1,109 @@
+<main class="create">
+  <header class="create-header">
+    <app-back class="create-header-back"/>
+    <h3>Nueva publicación</h3>
+  </header>
+
+  <article class="create-body scrollable">
+    <form action="" class="create-body-form " [formGroup]="myForm" (submit)="submitForm()">
+      <section class="create-body-form-images">
+        <label>Agregar imágenes</label>
+        <input type="file" #inputFile style="display: none;" (change)="onFileSelected($event)" accept="image/*" multiple>
+
+        @if(imgUrls().length === 0){
+          <div class="create-body-form-images-newImages" (click)="triggerFileInput()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
+              <path d="M4.7124 32.6027C4.7124 23.821 4.7124 19.4289 7.44171 16.702C10.171 13.975 14.5607 13.9727 23.3425 13.9727H32.6575C41.4393 13.9727 45.8313 13.9727 48.5583 16.702C51.2852 19.4313 51.2876 23.821 51.2876 32.6027C51.2876 41.3845 51.2876 45.7765 48.5583 48.5035C45.829 51.2305 41.4393 51.2328 32.6575 51.2328H23.3425C14.5607 51.2328 10.1687 51.2328 7.44171 48.5035C4.71473 45.7742 4.7124 41.3845 4.7124 32.6027Z" stroke="white" stroke-width="2.5"/>
+              <path d="M9.36974 16.3014L9.3418 13.9726C9.60262 11.8045 10.1499 10.3071 11.291 9.16837C13.48 6.98633 17.0057 6.98633 24.0572 6.98633H31.5349C38.5863 6.98633 42.1098 6.98633 44.3011 9.16837C45.4422 10.3071 45.9895 11.8045 46.2503 13.9726V16.3014" stroke="white" stroke-width="2.5"/>
+              <path d="M40.8081 27.9453C42.7373 27.9453 44.3012 26.3813 44.3012 24.4521C44.3012 22.5229 42.7373 20.959 40.8081 20.959C38.8789 20.959 37.3149 22.5229 37.3149 24.4521C37.3149 26.3813 38.8789 27.9453 40.8081 27.9453Z" stroke="white" stroke-width="2.5"/>
+              <path d="M4.7124 33.7668L8.79239 30.1968C9.81503 29.3028 11.1392 28.8306 12.4968 28.876C13.8544 28.9214 15.1441 29.481 16.1047 30.4414L26.0951 40.4317C26.8703 41.2068 27.8941 41.6836 28.9863 41.7782C30.0785 41.8728 31.1691 41.579 32.066 40.9487L32.7623 40.4597C34.0561 39.551 35.62 39.108 37.1982 39.2032C38.7764 39.2983 40.2756 39.926 41.4509 40.9837L48.9588 47.7394" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+
+            <p>Arrastra las fotos y los videos aquí</p>
+            <div>Seleccionar de la computadora</div>
+          </div>
+        }
+
+        @if(imgUrls().length > 0){
+          <app-add-images-slider (delete)="imgUrls().splice($event,1)" [imgUrls]="imgUrls()"/>
+          <div class="create-body-form-images-addImages">
+            <button type="button" (click)="triggerFileInput()">Agregar</button>
+            <button type="button" (click)="clearImgs()">Limpiar</button>
+          </div>
+         }
+
+      </section>
+
+      <section class="sectionInput">
+        <label for="title" class="labelInput">Titulo</label>
+        <input type="text" name="" id="title" placeholder="Escribe un título" class="inputText" formControlName="title">
+      </section>
+
+      <section class="sectionInput">
+        <label for="description" class="labelInput">Descripción</label>
+        <textarea type="text" name="" id="description" placeholder="Escribe una descripción" class="inputTextArea" formControlName="description"></textarea>
+      </section>
+      <section class="sectionInput create-body-form-price">
+        <label for="price" class="labelInput">Precio</label>
+        <input type="number" name="" id="price" placeholder="Escribe un precio" class="inputText" formControlName="price">
+      </section>
+
+      <section class="sectionInput ">
+        <label for="quantity" class="labelInput">Cantidad</label>
+        <input type="number" name="" id="quantity" placeholder="Escribe un precio" class="inputText" formControlName="quantity">
+      </section>
+
+      <section class="sectionInput">
+        <label class="labelInput">Moneda</label>
+        <app-custom-select
+        [placeholder]="'Seleccione una moneda'"
+        [values]="currencyId()"
+        [namesInput]="currencyName()"
+        (value)="selectedCurrency.set($event)"/>
+      </section>
+      <section class="sectionInput">
+        <label class="labelInput">Estado</label>
+        <app-custom-select
+        [placeholder]="'Seleccione un estado del producto'"
+        [values]="statuses()"
+        [namesInput]="statuses()"
+        (value)="selectedStatus.set($event)"/>
+      </section>
+      <section class="sectionInput">
+        <label class="labelInput">Categorias</label>
+        <app-custom-select
+        [values]="categorieId()"
+        [namesInput]="categorieName()"
+        [placeholder]="'Elija una categoria'"
+        (value)="addCategorie($event)"/>
+
+      </section>
+      <section class="sectionInput">
+        <label class="labelInput">Pais</label>
+        <app-custom-select [placeholder]="'Seleccione un pais'"
+        [values]="countryId()"
+        [namesInput]="countryName()"
+        (value)="addCountry($event)"/>
+      </section>
+      <section class="sectionInput">
+        <label class="labelInput">Provincia</label>
+        <app-custom-select [placeholder]="'Seleccione una provincia'"
+        [values]="provinceId()"
+        [namesInput]="provinceName()"
+        (value)="addProvince($event)"
+        #provinceSelect/>
+      </section>
+      <section class="sectionInput">
+        <label class="labelInput">Municipio</label>
+        <app-custom-select [placeholder]="'Seleccione un municipio'"
+        [values]="municipalityId()"
+        [namesInput]="municipalityName()"
+        (value)="selectedMinicipality.set($event)"
+        #municipalitySelect/>
+      </section>
+
+      <button type="submit" class="create-body-form-submit" [disabled]="!validateForm()">Publicar</button>
+    </form>
+  </article>
+
+</main>

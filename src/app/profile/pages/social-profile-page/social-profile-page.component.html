@@ -1,33 +1,38 @@
-<main class="profile">
-  <app-banner class="profile-banner"/>
+<main class="profile enter-from-bottom">
+  @if(!profileResource.isLoading()){
+  <app-banner class="profile-banner"  [isProfile]="profileResource.value()?.isOwnProfile!"/>
   <div class="profile-containerPicture">
     <div class="profile-containerPicture-picture">
-      <img  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="">
+      <img  [src]="profileResource.value()?.user?.avatar ?? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'" alt="">
     </div>
+    @if (profileResource.value()?.isOwnProfile! === false) {
+      <app-follow (clickFollow)="onClickFollow(profileResource.value()?.user?.id!, $event)" [isFollowing]="profileResource.value()?.isFollowing!"/>
+    }
   </div>
-
 
   <article class="profile-content">
     <div class="profile-content-data">
-      <h4>Billie Ailesh</h4>
-      <p>&#64;yailinlamasviral</p>
+      <h4>{{profileResource.value()?.user?.fullname}}</h4>
+      <p>&#64;{{profileResource.value()?.user?.username}}</p>
 
       <div class="profile-content-data-metrics">
-        <p>{{1500000 | truncateNumber}} seguidores</p>
-        <p>{{1500000 | truncateNumber}} seguidos</p>
-        <p>{{1500000 | truncateNumber}} publicaciones</p>
+        <p>{{followers() | truncateNumber}} seguidores</p>
+        <p>{{profileResource.value()?.stats?.following! | truncateNumber}} seguidos</p>
+        <p>{{profileResource.value()?.stats?.publishes! | truncateNumber}} publicaciones</p>
       </div>
     </div>
 
-    <section class="profile-content-posts">
-      <!-- <post-card class="profile-content-posts-post" [datos]="'1'" [isProfile]="true"/>
-      <post-card class="profile-content-posts-post" [datos]="'2'" [isProfile]="true"/>
-      <post-card class="profile-content-posts-post" [datos]="'3'" [isProfile]="true"/>
-      <post-card class="profile-content-posts-post" [datos]="'4'" [isProfile]="true"/> -->
-
-    </section>
   </article>
 
+  }
+  <section class="profile-content-posts">
+    @if(!publishesResource.isLoading() ){
+      @for (item of publishesResource.value()?.data; track $index) {
+        <post-card class="profile-content-posts-post" [datos]="item" [isProfile]="true"/>
+      }
+    }
+
+  </section>
 
 </main>
 

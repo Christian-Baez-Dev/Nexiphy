@@ -1,3 +1,4 @@
+@import "src/theme/variables.scss";
 .container{
   display: flex;
   flex-direction: row;
@@ -28,6 +29,11 @@
   width: 100%;
 }
 
+.comment-content{
+  font-size: 14px;
+  font-family: 'Poppins';
+  white-space: pre-line;
+}
 
 
 .comment .comment-user{
@@ -35,7 +41,7 @@
   font-size: 14px;
   font-family: 'Poppins';
   font-weight: 500;
-  color: #C5FF15;
+  color: $secondary-color;
   margin-right: 5px;
 }
 .comment .comment-user span{
@@ -51,9 +57,12 @@
 
 .comment-extras{
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
   margin-top: 5px;
+  flex: 1;
+  max-width: 100%;
+  width: 100%;
 }
 
 
@@ -67,6 +76,23 @@
   line-height: normal;
 }
 
+.comment-extas-input{
+  width: 60vw;
+  max-width: 60vw;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all ease 300ms;
+  textarea{
+    padding: 3px 15px;
+  }
+}
+
+
+.inputOpen{
+  opacity: 1;
+  height: auto;
+}
 
 
 .comment-replies{
@@ -75,6 +101,7 @@
   margin-top: 12px;
   gap: 10px;
   padding-left: 15px;
+
 
 }
 

@@ -9,6 +9,19 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
+ @import "src/theme/variables.scss";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -24,18 +37,143 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import '@ionic/angular/css/palettes/dark.system.css';
+/* Poppins - Thin */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+/* Poppins - Extra Light */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* Poppins - Light */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Poppins - Regular */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Poppins - Medium */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Poppins - SemiBold */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Poppins - Bold */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Poppins - ExtraBold */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Poppins - Black */
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('assets/fonts/poppins/Poppins-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
 
 .isLike{
   fill:red;
@@ -66,6 +204,10 @@
 }
 
 
+
+.scrollable{
+  overflow-y: auto;
+}
 .input-custom
 {
   background-color: #3D3D3D;
@@ -171,7 +313,7 @@
   margin-right: 15px;
 }
 .fondo{
-  background-color: #1b1b1b;
+  background-color: $primary-color;
   height: 100vh;
   width: 100vw;
 }
@@ -261,4 +403,93 @@ p{
   animation: growEffect 200ms ease ; /* La animación dura 1 segundo */
 }
 
+.enter-from-bottom{
+  animation: enter-page-from-bottom ease 200ms ;
+}
 
+
+.enter-from-right{
+  animation: enter-page-from-right ease-in-out 150ms ;
+}
+
+@keyframes enter-page-from-bottom {
+  from{
+    transform: translateY(100%);
+  }
+
+  to{
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes enter-page-from-right {
+  from{
+    transform: translateX(100%);
+  }
+
+  to{
+    transform: translateX(0);
+  }
+}
+
+h3{
+  margin: 0;
+}
+h1{
+  margin: 0;
+}
+
+h2{
+  margin: 0;
+}
+
+h4{
+  margin: 0;
+}
+
+h5{
+  margin: 0;
+}
+
+h6{
+  margin: 0;
+}
+
+
+.input-textArea-class-comment{
+  border: 1px solid #7a7a7a;
+  outline: none;
+  color:  white;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 100px;
+  resize: none; /* Evita que el usuario lo ajuste manualmente */
+  overflow-y: auto;
+  border-radius: 15px;
+  field-sizing: content;
+  flex: 1;
+  scrollbar-color: transparent;
+  transition-duration: 200ms;
+  background-color: #3e3e3e;
+}
+
+.input-textArea-class-comment::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Edge */
+}
+
+
+.loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 75px;
+  width: 75px;
+}

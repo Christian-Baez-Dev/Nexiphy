@@ -14,10 +14,10 @@ export class AuthService {
 
   private _api_url = environment.api_Url
   private _httpClient = inject(HttpClient)
-  private _user = signal<UserDto>(JSON.parse(localStorage.getItem('user')!))
+  private _user = signal<UserDto | null>(JSON.parse(localStorage.getItem('user')!))
   private _authStatus = signal<AuthStatus>('checking')
 
-  user = computed<UserDto>(() => this._user())
+  user = computed<UserDto | null>(() => this._user())
 
   authStatus = computed<AuthStatus>(() => {
     if(this._authStatus() === 'checking') return 'checking'
@@ -35,6 +35,7 @@ export class AuthService {
     .post<ApiResponse<UserDto>>(this._api_url+'/auth/login',user,{observe:'response',withCredentials: true})
     .pipe(
       map((response: HttpResponse<any>) =>{
+        console.log(response)
         return {
           message: response.body.message,
           statusCode: response.status,
@@ -103,6 +104,7 @@ export class AuthService {
     .get(this._api_url + '/auth/validate', {withCredentials:true, observe:'response'})
     .pipe(
       map((response: HttpResponse<any>) =>{
+        console.log(response)
         if(response.body.isValid)
           return true
         else{
@@ -125,6 +127,7 @@ export class AuthService {
 
         if(response.body.success)
         {
+          console.log('se reseteo')
           this.resetData()
           return {success :true}
         }
@@ -136,7 +139,7 @@ export class AuthService {
 
   private resetData(){
     localStorage.removeItem('user')
-    this._user.set(UserInitialState)
+    this._user.set(null)
     this._authStatus.set('not-authenticated')
   }
 }

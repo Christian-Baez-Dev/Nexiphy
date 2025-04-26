@@ -6,10 +6,10 @@
   </header>
 
     <div class="create-coment">
-      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp">
+      <img [src]="authservice.user()!.imagUrl ? authservice.user()!.imagUrl : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'">
 
       <div class="create-coment-text">
-        <p>AnabelTurbi</p>
+        <p>{{authservice.user()!.username}}</p>
         <textarea #contentTxt name="" id="" placeholder="¿Qué novedades tienes?" (input)="content.set(contentTxt.value)"></textarea>
       </div>
     </div>
@@ -22,7 +22,7 @@
 
     <div class="create-options">
       <div class="create-options-icons">
-        <input type="file" #inputFile class="hide" (change)="onFileSelected($event)" accept="image/*">
+        <input type="file" #inputFile class="hide" (change)="onFileSelected($event)" accept="image/*" multiple>
         <svg (click)="triggerFileInput()" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23"
           fill="none">
           <g clip-path="url(#clip0_496_1883)">

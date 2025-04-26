@@ -1,0 +1,22 @@
+<div class="selectForInput">
+  <div class="selectForInput-selection" [ngClass]="{'selection-in-open': isOpen()}" (click)="isOpen.set(!isOpen())">
+    <p [ngClass]="{'placeholder' : isMultiple() || selectedIndex() === null}">{{isMultiple() ? placeholder(): namesInput()[selectedIndex()!] ?? placeholder() | status }}</p>
+  </div>
+
+  <div class="selectForInput-options" [ngClass]="{'open': isOpen()}">
+    @if(namesInput().length > 0){
+      @for (name of namesInput(); track $index; let i = $index) {
+        @if(i !== selectedIndex() || isMultiple()){
+          <div class="selectForInput-options-option" (click)="changeSelection(i)">
+            <p>{{name | status }}</p>
+          </div>
+        }
+      }
+    }@else {
+      <div class="selectForInput-options-option">
+        <p>{{emptyMessage()}}</p>
+      </div>
+    }
+
+  </div>
+</div>

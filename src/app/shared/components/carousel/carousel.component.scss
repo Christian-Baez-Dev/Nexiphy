@@ -1,6 +1,7 @@
+@import "src/theme/variables.scss";
 .div-carouser-container{
   position: relative;
-  background-color: #272727;
+  background-color: $primary-color;
 }
 
 swiper-container{
@@ -13,14 +14,14 @@ swiper-slide{
   display: flex;
   justify-content: center; /* Centra las imágenes horizontalmente */
   align-items: center; /* Alinea las imágenes por la parte inferior */
-  max-width: 100%; /* Ajusta el ancho sin deformar */
-  height: auto; /* Mantiene la proporción */
+  width: 100vw; /* Ajusta el ancho sin deformar */
+  height: 100vw; /* Mantiene la proporción */
 }
 
 img{
-  width: 100%;
-  height: auto; /* Permite que cada imagen mantenga su proporción natural */
-  object-fit: cover;
+  width: auto;
+  height: 100%; /* Permite que cada imagen mantenga su proporción natural */
+  object-fit:cover;
 
 }
 

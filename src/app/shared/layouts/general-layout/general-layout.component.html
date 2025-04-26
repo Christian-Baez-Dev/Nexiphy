@@ -1,6 +1,4 @@
 <main class="fondo fondo-home" >
-
-  <router-outlet/>
   @if(componentsHomeService.isCreateOpen() || componentsHomeService.isMessageModalOpen()){
     <div class="modal-div">
       @if (componentsHomeService.isCreateOpen()) {
@@ -19,6 +17,8 @@
     </div>
 
   }
+  <router-outlet style="height: 100vh;"/>
+
   <app-nav-bar class="nav-bar-app"/>
 </main>
 

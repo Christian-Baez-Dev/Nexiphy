@@ -1,0 +1,203 @@
+@import "src/theme/variables.scss";
+
+.create{
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #5B5B5B;
+  background: #2B2B2B;
+  font-family: 'Poppins';
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  &-header{
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid #6f6f6f;
+    border-radius: 10px 10px 0  0;
+    button{
+      color: #FFF;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      padding: 10px 20px;
+      background-color: transparent;
+    }
+
+    h3{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+      color: #FFF;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+
+  &-body{
+
+    &-form{
+      max-height: 400px;
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px;
+
+      &-images{
+        display: flex;
+        flex-direction: column;
+
+        label{
+          color: #FFF;
+          font-family: Poppins;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin-bottom: 10px;
+          margin-top: 20px;
+        }
+
+        &-newImages{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          border: 2px dashed #4E4E4E;
+          padding: 35px 0;
+
+
+          p{
+            color: #FFF;
+            font-family: Poppins;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+
+          div{
+            border-radius: 40px;
+            background: #C5FF15;
+            color: #000;
+            font-family: Poppins;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            padding: 5px 20px;
+          }
+         }
+      }
+
+      &-price{
+
+        &-divInput{
+          display: flex;
+          flex-direction: row;
+          padding: 10px 0 !important;
+          padding-left: 15px !important;
+          input{
+            outline: none;
+            border: none;
+            background-color: transparent;
+            flex: 1;
+            padding: 0;
+          }
+        }
+
+        &-divInput:has(input:focus){
+          border: 1px solid $secondary-color;
+        }
+      }
+    }
+
+    &-form::-webkit-scrollbar {
+      display: none; /* Chrome, Safari y Edge */
+    }
+  }
+}
+
+.inputText{
+  background-color: #3D3D3D;
+  border-radius: 10px;
+  border: 1px solid #5B5B5B;
+  padding: 10px 15px;
+  border: 1px solid #5B5B5B;
+  color: #e0e0e0;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+
+.inputText:focus{
+  border: 1px solid $secondary-color;
+
+}
+
+.inputTextArea{
+  background-color: #3D3D3D;
+  border-radius: 10px;
+  border: 1px solid #5B5B5B;
+  padding: 10px 15px;
+  border: 1px solid #5B5B5B;
+  color: #e0e0e0;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  outline: none;
+  display: flex;
+  align-items: center;
+  resize: none; /* Evita que el usuario lo ajuste manualmente */
+  overflow-y: auto;
+  field-sizing: content;
+  max-height: 200px;
+
+}
+
+.inputTextArea:focus{
+  border: 1px solid $secondary-color;
+
+}
+
+
+.inputTextArea::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Edge */
+}
+.labelInput{
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.labelInput:has(+ input:focus) {
+  color: $secondary-color;
+}
+
+.labelInput:has(+ div input:focus) {
+  color: $secondary-color;
+}
+
+.labelInput:has(+ textarea:focus) {
+  color: $secondary-color;
+}
+.sectionInput{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}

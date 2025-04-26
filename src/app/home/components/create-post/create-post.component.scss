@@ -1,5 +1,6 @@
 /* Definimos la animación de apertura */
 /* Definimos la animación de "crecer" */
+@import "src/theme/variables.scss";
 
 .create{
   position: relative;
@@ -28,7 +29,7 @@
       padding: 10px 20px;
       transform: translateY(-50%); /* Centra verticalmente correctamente */
 
-      color: #C5FF15;
+      color: $secondary-color;
       font-family: Poppins;
       font-size: 12px;
       font-style: normal;
@@ -64,6 +65,7 @@
         height: 50px;
         width: 50px;
         border-radius: 50%;
+        object-fit: cover;
       }
 
 
@@ -74,7 +76,7 @@
 
         overflow: hidden;
         p{
-          color: #C5FF15;
+          color: $secondary-color;
           font-family: Poppins;
           font-size: 14px;
           font-style: normal;
@@ -128,7 +130,7 @@
       button{
         padding: 5px 20px;
         border-radius: 4px;
-        background: #C5FF15;
+        background: $secondary-color;
         color: #282828;
         font-family: Poppins;
         font-size: 14px;

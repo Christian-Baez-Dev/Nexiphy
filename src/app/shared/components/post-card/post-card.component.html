@@ -4,14 +4,14 @@
 <div class="heart-container" #heartContainer></div>
 <section #homeCard class="home-card" [ngClass]="{'profile-post': isProfile() ===true}">
 
-  <div class="home-card-header">
+  <div class="home-card-header" [routerLink]="['/social-profile', datos().author.username]">
     <ion-avatar>
-      <img [src]="datos().author.avatar" >
+      <img [src]="datos().author.avatar ? datos().author.avatar : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'" >
     </ion-avatar>
     <div class="home-card-header-text">
       <div class="home-card-header-title">
         <p>
-          {{datos().author.fullname}} <span>&bull; </span> <span>{{datos().created_at | timeAgo }}</span>
+          {{datos().author.fullname}} <span>&bull; </span> <span>{{datos().created_at| timeAgo }}</span>
         </p>
       </div>
       <div class="home-card-header-subtitle">
@@ -27,7 +27,7 @@
     <div class="home-card-content-option">
       <div class="home-card-content-option-options">
 
-        <svg [ngClass]="{isLikeAnimated:isLiked()}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" (click)="isLiked.set(!isLiked())">
+        <svg [ngClass]="{isLikeAnimated:isLiked()}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" (click)="toggleLike()">
           <path [ngClass]="{isLike:isLiked()}" d="M11.9999 7.23001C10.2669 3.30601 6.23591 2.95701 4.35891 4.66801C2.82991 6.04101 2.09591 9.33301 3.49191 12.363C5.89991 17.573 11.9999 20.309 11.9999 20.309C11.9999 20.309 18.1009 17.573 20.5079 12.363C21.9039 9.33301 21.1699 6.04101 19.6409 4.66801C17.7639 2.95701 13.7329 3.30701 11.9999 7.23001Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 

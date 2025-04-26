@@ -1,30 +1,18 @@
-<main class="home">
+<main class="home enter-from-bottom">
   <home-marketplace-header class="home-header"/>
   <nav class="home-nav">
-    <button class="home-nav-button btn-click" (click)="categoriesIsOpen.set(true)">Categorias</button>
+    <button class="home-nav-button btn-click" [routerLink]="'create'">Vender</button>
     <button class="home-nav-button btn-click" (click)="filterIsOpen.set(true)">Ordenar</button>
 
   </nav>
 
   <section class="home-section">
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
-    <post-preview class="home-section-post"/>
+    @for (item of announcementResource.value()?.data; track $index) {
+      <post-preview class="home-section-post" [announcement]="item" [routerLink]="['/announcement',item.id]"/>
+    }
 
   </section>
 
-  @if(categoriesIsOpen()){
-    <div class="modal-div ">
-      <app-categories-modal class="home-categories grow" (close)="categoriesIsOpen.set(false)"/>
-    </div>
-  }
 
   @if(filterIsOpen()){
     <div class="modal-div ">

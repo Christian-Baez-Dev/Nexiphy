@@ -1,3 +1,4 @@
+@import "src/theme/variables.scss";
 svg{
   outline: none;
   border: none;
@@ -7,6 +8,7 @@ img{
   width: 40px;
   height: 40px;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 
@@ -24,7 +26,7 @@ img{
     position: absolute;
     width: 40px;
     height: 2px;
-    background-color: #c4ff15;
+    background-color: $secondary-color;
     top: 0;
 
 
@@ -46,10 +48,23 @@ img{
 }
 
 .active{
-  stroke: #C5FF15 ;
+  stroke: $secondary-color ;
+}
+
+.activaWithFill{
+  stroke: $secondary-color ;
+  fill: $secondary-color;
 }
 .div-option{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.profile{
+  transition: border ease 50ms;
+}
+
+.profile-select{
+  border: 2px solid $secondary-color;
 }

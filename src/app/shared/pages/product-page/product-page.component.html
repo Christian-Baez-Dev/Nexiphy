@@ -1,0 +1,66 @@
+<main class="announcement fondo enter-from-right">
+  @if(announcement()){
+    <div class="announcement-header">
+      <app-back/>
+
+      <div class="announcement-header-options">
+        <i class="fa-light fa-magnifying-glass"></i>
+        <i class="fa-light fa-basket-shopping"></i>
+      </div>
+
+    </div>
+    <app-carousel class="announcement-imgs" [imgUrls]="announcement()?.images!" [navigation]="false"/>
+    <div class="announcement-content">
+      <h3 class="announcement-content-title">{{announcement()?.title| titlecase}}</h3>
+      <h6 class="announcement-content-price">{{announcement()?.currency?.symbol}}{{announcement()?.price | currency:'':''}}</h6>
+      <p class="announcement-content-createAt subtext">Publicado {{announcement()?.created_at! | timeAgo}}</p>
+      <div class="announcement-content-detail">
+        <h3 class="announcement-content-detail-title">Detalles</h3>
+
+        <div class="announcement-content-detail-state">
+          <p class="announcement-content-detail-state-title subtext">Estado</p>
+          <p class="announcement-content-detail-state-text" [style.color]="announcement()?.status! | statusColor">{{announcement()?.status! | status}}</p>
+        </div>
+
+        <div class="announcement-content-detail-description">
+          <p class="announcement-content-detail-description-title subtext">Descripcion</p>
+          <p class="announcement-content-detail-description-text">{{announcement()?.description}}</p>
+        </div>
+
+
+        <div class="announcement-content-detail-location">
+          <p class="announcement-content-detail-location-title subtext">Ubicacion</p>
+          <p class="announcement-content-detail-location-text">{{announcement()?.municipality?.name}}, {{announcement()?.municipality?.province?.name}}</p>
+        </div>
+
+        <div class="announcement-content-purchase">
+          <button>Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="announcement-author">
+      <h3 class="announcement-author-title">Información del vendedor</h3>
+      <div class="announcement-author-information">
+        <img [src]="announcement()?.marketUser?.userPicture  ? announcement()?.marketUser?.userPicture : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'" alt="">
+        <div class="announcement-author-information-data">
+          <div class="announcement-author-information-data-top">
+            <p>
+              {{announcement()?.marketUser?.firstName}} {{announcement()?.marketUser?.lastName}}
+              <span>
+                <i class="fa-solid fa-star"></i>
+                {{announcement()?.marketUser?.rating}}
+              </span>
+            </p>
+          </div>
+
+          <div class="announcement-author-information-data-bottom">
+            <p class="subtext">Se unió a Nexiphy en {{announcement()?.marketUser?.created_at! | year}} </p>
+          </div>
+        </div>
+        <button class="announcement-author-information-profile">Ver perfil </button>
+      </div>
+    </div>
+  }
+
+</main>

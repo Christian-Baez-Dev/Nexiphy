@@ -1,6 +1,7 @@
+@import "src/theme/variables.scss";
 .btn-enviar{
   border-radius: 10px;
-  background: #C5FF15;
+  background: $secondary-color;
   color: #282828;
   font-family: Poppins;
   font-size: 18px;

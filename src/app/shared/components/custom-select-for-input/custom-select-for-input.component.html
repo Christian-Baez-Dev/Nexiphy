@@ -1,0 +1,15 @@
+<div class="selectForInput">
+  <div class="selectForInput-selection">
+    <p>{{names()[selectedIndex()] | titlecase}}</p>
+  </div>
+
+  <div class="selectForInput-options">
+    @for (name of names(); track $index; let i = $index) {
+      @if(i !== selectedIndex()){
+        <div class="selectForInput-options-option"  [ngClass]="{'optionSelected': i ===selectedIndex()}">
+          <p>{{name | titlecase }}</p>
+        </div>
+      }
+    }
+  </div>
+</div>

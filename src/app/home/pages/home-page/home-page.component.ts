@@ -10,16 +10,18 @@ import { TruncateNumberPipe } from 'src/app/pipes/truncate-number.pipe';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { UserDto } from 'src/app/interfaces/user.interface';
 import { Router, RouterLink } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
-  imports: [ PostCardComponent, RouterLink],
+  imports: [ PostCardComponent,IonicModule],
 })
 export default class HomePageComponent  implements OnInit {
   items = ['1','2','3','4','5','6','7']
   private publishService = inject(PublishService)
+  componentsHomeServiceService = inject(ComponentsHomeServiceService)
   authService = inject(AuthService)
   router = inject(Router)
   user = signal(this.authService.user())

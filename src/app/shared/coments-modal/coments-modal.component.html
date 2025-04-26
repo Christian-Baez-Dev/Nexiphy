@@ -1,15 +1,22 @@
 
 
-<ion-modal [cssClass]="'custom-modal'" [trigger]="trigger()" [initialBreakpoint]="1" [breakpoints]="[0, 1]" [keyboardClose]="true" [showBackdrop]="true" [backdropDismiss]="true">
-  <ng-template >
+<ion-modal [cssClass]="'custom-modal'" [trigger]="postId()" [initialBreakpoint]="1" [breakpoints]="[0, 1]" [keyboardClose]="true" [showBackdrop]="true" [backdropDismiss]="true">
+  <ng-template style="position: relative; display: flex; flex-direction: column; height: 100%;">
 
     <div class="custom-modal-container">
       <div class="custom-modal-container-title">
         Comentarios
       </div>
       <div class="custom-modal-container-coments">
-        <app-comment  [hasComent]="true"/>
+        @for (comment of commentResource.value()?.data; track $index) {
+          <app-comment  [comment]="comment"/>
+        }
       </div>
+    </div>
+
+    <div class="custom-modal-input">
+      <textarea class="input-textArea-class-comment" #inputComment type="text" ></textarea>
+      <i class="fa-light fa-paper-plane" (click)="createComment( inputComment)"></i>
     </div>
   </ng-template>
 </ion-modal>

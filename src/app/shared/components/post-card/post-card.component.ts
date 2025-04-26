@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, effect, ElementRef, input, OnInit, signal, viewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, inject, input, OnInit, signal, viewChild } from '@angular/core';
 import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
 import { IonicModule } from '@ionic/angular';
 import { CarouselComponent } from '../carousel/carousel.component';
@@ -9,6 +9,8 @@ import { Publish } from 'src/app/interfaces/publish.interface';
 import { TimeAgoPipe } from 'src/app/pipes/time-ago.pipe';
 import { TruncateNumberPipe } from 'src/app/pipes/truncate-number.pipe';
 import { RouterLink } from '@angular/router';
+import { PublishService } from 'src/app/services/publish.service';
+import { FollowService } from 'src/app/services/follow.service';
 
 @Component({
   selector: 'post-card',
@@ -17,10 +19,11 @@ import { RouterLink } from '@angular/router';
   imports: [CarouselComponent, TruncatePipe, CommentsComponent, IonicModule,NgClass, TimeAgoPipe, TruncateNumberPipe, RouterLink],
 })
 export class PostCardComponent  implements OnInit {
+  followServices = inject(FollowService)
+  datos = input.required<Publish>()
   isLiked = signal<boolean>(false)
 
-  datos = input.required<Publish>()
-
+  publishService = inject(PublishService)
 
   isProfile =  input<boolean>(false)
   toggleText() {
@@ -37,14 +40,18 @@ export class PostCardComponent  implements OnInit {
 
 
   toggleLike(){
-    this.isLiked.set(!this.isLiked())
-
+    this.publishService.toggleLike(this.datos().id).subscribe((response) =>{
+      this.isLiked.set(!this.isLiked())
+      console.log(response)
+    })
 
   }
   constructor() { }
 
 
   ngOnInit() {
+    console.log(this.datos())
+    this.isLiked.set(this.datos().hasLiked)
   }
 
 

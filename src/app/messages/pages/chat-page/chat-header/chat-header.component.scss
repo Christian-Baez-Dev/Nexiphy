@@ -1,10 +1,11 @@
+@import "src/theme/variables.scss";
 header{
   display: flex;
   flex-direction: row;
   justify-content: stretch;
   align-items: center;
   padding: 10px 10px;
-  background: #1b1b1b;
+  background: $primary-color;
 }
 
 img{

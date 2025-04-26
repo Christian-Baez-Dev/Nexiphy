@@ -1,35 +1,38 @@
 <div class="container">
 
   <div class="container-img">
-    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="">
+    <img [src]="comment().author.avatar ? comment().author.avatar : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'" alt="">
   </div>
   <div class="comment">
-    <p class="comment-user">&#64;WTowers  <span>hace 1 hora</span></p>
-    <p>El mejor</p>
-    <div class="comment-extras">
-      <p>Responder</p>
-    </div>
+    <p class="comment-user">&#64;{{comment().author.username}}  <span>{{comment().created_at | timeAgo }}</span></p>
+    <p class="comment-content">{{comment().content}}</p>
 
-    @if (hasComent()) {
+
+    @if (!comment().isReply) {
+      <div class="comment-extras">
+        <p (click)="isInputOpen.set(!isInputOpen())">Responder</p>
+        @if(isInputOpen()){
+          <div class="comment-extas-input" [ngClass]="{'inputOpen': isInputOpen()}">
+            <textarea  class="input-textArea-class-comment" #inputComment type="text" (keyup.enter)="createCommentChilldren(inputComment.value)"></textarea>
+          </div>
+        }
+      </div>
+
       <div class="comment-replies" [ngClass]="{'border-gray': isExpanded()}">
 
         @if (isExpanded()) {
           <div class="comment-replies-replies">
-            <app-comment [hasComent]="false" />
-            <app-comment [hasComent]="false" />
-            <app-comment [hasComent]="false" />
-            <app-comment [hasComent]="false" />
-            <app-comment [hasComent]="false" />
-            <app-comment [hasComent]="false" />
-            <app-comment [hasComent]="false" />
+            @for (commentReplies of replies(); track $index) {
+              <app-comment [comment]="commentReplies"/>
+            }
 
           </div>
         }
 
         @if (isExpanded()) {
-          <p class="comment-replies-toggle" (click)="toggleExpanded()">Ocultar respuestas (21111111111)</p>
+          <p class="comment-replies-toggle" (click)="toggleExpanded()">Ocultar respuestas ({{comment().repliesCount}})</p>
         }@else {
-          <p class="comment-replies-toggle"(click)="toggleExpanded()">Mostrar respuestas (21111111111)</p>
+          <p class="comment-replies-toggle"(click)="toggleExpanded()">Mostrar respuestas ({{comment().repliesCount}})</p>
         }
 
       </div>

@@ -6,3 +6,12 @@ export interface ApiResponse<T>{
   errorMessage?: string
   data?:T
 }
+
+
+export interface PaginationResponse<T>{
+  totalCount: number
+  hasPrevious?: boolean
+  hasNext?: boolean
+  totalPages?: number
+  data: T
+}

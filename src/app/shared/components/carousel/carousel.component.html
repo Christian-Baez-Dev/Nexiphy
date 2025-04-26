@@ -1,6 +1,6 @@
 <div class="div-carouser-container">
 
-  @if(imgUrls().length > 1){
+  @if(imgUrls().length > 1 && navigation()){
       <button (click)="swiper.swiper.slidePrev()" [disabled]="swiper.swiper.isBeginning" class="btn-navigation Prev">
         <i class="fa-regular fa-angle-left"></i>
       </button>
@@ -14,12 +14,9 @@
   <swiper-container class="swipper-class" [slides-per-view]="1" pagination="true" #swiper>
     @for (img of imgUrls(); track $index) {
       <swiper-slide>
-        <img [src]="img" />
+        <img [src]="img"/>
       </swiper-slide>
     }
-
-
-
   </swiper-container>
 
 

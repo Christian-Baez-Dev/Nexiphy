@@ -1,30 +1,51 @@
 import { NgClass } from '@angular/common';
-import { Component, computed, input, linkedSignal, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, input, linkedSignal, OnInit, signal } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { CommentApp } from 'src/app/interfaces/publish.interface';
+import { TimeAgoPipe } from 'src/app/pipes/time-ago.pipe';
+import { PublishService } from 'src/app/services/publish.service';
 
 @Component({
   selector: 'app-comment',
   templateUrl: './coment.component.html',
   styleUrls: ['./coment.component.scss'],
-  imports:[IonicModule, NgClass]
+  imports:[IonicModule, NgClass, TimeAgoPipe]
 })
 export class CommentComponent  implements OnInit {
-  toggleExpanded() {
-    if(this.isExpanded()){
-      this.isExpanded.set(false)
-      return
-    }
-
-    this.isExpanded.set(true)
-  }
+  publishService = inject(PublishService)
 
   isLiked = signal<boolean>(false)
-  hasComent = input.required<boolean>()
   hasLike = signal<boolean>(false)
-
+  comment = input.required<CommentApp>()
+  replies = signal<CommentApp[]>([])
   isExpanded = signal<boolean>(false)
+  isInputOpen = signal<boolean>(false)
+
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.comment())
+  }
+
+  toggleExpanded() {
+    if(!this.isExpanded() && this.replies().length === 0){
+      this.publishService.getRepliesComment(this.comment().id).subscribe((response) =>{
+        this.replies.set(response.data)
+      })
+    }
+    this.isExpanded.set(!this.isExpanded())
+  }
+
+
+  createCommentChilldren(content:string){
+    this.publishService.createComment({content:content, parentCommentId:this.comment().id}).subscribe((response) =>{
+      this.isInputOpen.set(false)
+      console.log(response)
+      this.publishService.getRepliesComment(this.comment().id).subscribe((response) =>{
+        this.replies.set(response.data)
+      })
+    })
+  }
 
 }
