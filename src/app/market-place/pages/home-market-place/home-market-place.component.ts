@@ -27,7 +27,6 @@ export default class HomeMarketPlaceComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {
-   console.log(this.announcementResource.value())
   }
 
 }

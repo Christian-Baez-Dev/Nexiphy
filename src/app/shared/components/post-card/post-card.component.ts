@@ -31,9 +31,7 @@ export class PostCardComponent  implements OnInit {
       this.isExpanded.set(false)
       return
     }
-
     this.isExpanded.set(true)
-
   }
 
   isExpanded = signal(false)
@@ -42,7 +40,6 @@ export class PostCardComponent  implements OnInit {
   toggleLike(){
     this.publishService.toggleLike(this.datos().id).subscribe((response) =>{
       this.isLiked.set(!this.isLiked())
-      console.log(response)
     })
 
   }
@@ -50,7 +47,6 @@ export class PostCardComponent  implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.datos())
     this.isLiked.set(this.datos().hasLiked)
   }
 

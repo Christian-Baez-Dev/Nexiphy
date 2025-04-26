@@ -11,9 +11,9 @@ import { RouterLink } from '@angular/router';
   imports: [PreviewMessageComponent, BackComponent, SearchBarComponent, RouterLink]
 })
 export default class MessagesPageComponent  implements OnInit {
-clickMetod() {
-  console.log('click')
-}
+  clickMetod() {
+    console.log('click')
+  }
 
   constructor() { }
 

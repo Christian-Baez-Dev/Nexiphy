@@ -60,7 +60,6 @@ export default class SocialProfilePageComponent  implements OnInit {
   }
 
   onClickFollow(userId: string, isFollowing: boolean) {
-    console.log(isFollowing)
       if(isFollowing === true){
         this.followService.followSomeone(userId)
         this.followers.set(this.followers()+1)

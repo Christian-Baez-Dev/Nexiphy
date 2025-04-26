@@ -30,12 +30,10 @@ export class AuthService {
 
 
   login(user: LoginRequest): Observable<ApiResponse<UserDto>>{
-    console.log(user)
     return this._httpClient
     .post<ApiResponse<UserDto>>(this._api_url+'/auth/login',user,{observe:'response',withCredentials: true})
     .pipe(
       map((response: HttpResponse<any>) =>{
-        console.log(response)
         return {
           message: response.body.message,
           statusCode: response.status,
@@ -65,12 +63,10 @@ export class AuthService {
 
 
   register(user: RegisterRequest): Observable<ApiResponse<UserDto>>{
-    console.log(user)
     return this._httpClient
     .post<ApiResponse<UserDto>>(this._api_url+'/user/register',user,{withCredentials: true,observe:'response'})
     .pipe(
       map((response: HttpResponse<any>) =>{
-        console.log(response)
         return {
           message: response.body.message,
           statusCode: response.status,
@@ -88,7 +84,6 @@ export class AuthService {
         this._user.set(UserInitialState)
         localStorage.removeItem('user')
         this._authStatus.set('not-authenticated')
-        console.log(error)
         return of({
           statusCode: error.error.status,
           hasError: true,
@@ -104,7 +99,6 @@ export class AuthService {
     .get(this._api_url + '/auth/validate', {withCredentials:true, observe:'response'})
     .pipe(
       map((response: HttpResponse<any>) =>{
-        console.log(response)
         if(response.body.isValid)
           return true
         else{
@@ -123,11 +117,9 @@ export class AuthService {
     return this._httpClient.post(this._api_url+'/auth/logout',{}, {withCredentials: true, observe:'response'})
     .pipe(
       map((response: HttpResponse<any>) =>{
-        console.log(response)
 
         if(response.body.success)
         {
-          console.log('se reseteo')
           this.resetData()
           return {success :true}
         }

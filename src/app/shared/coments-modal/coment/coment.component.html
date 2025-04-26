@@ -29,10 +29,12 @@
           </div>
         }
 
-        @if (isExpanded()) {
-          <p class="comment-replies-toggle" (click)="toggleExpanded()">Ocultar respuestas ({{comment().repliesCount}})</p>
-        }@else {
-          <p class="comment-replies-toggle"(click)="toggleExpanded()">Mostrar respuestas ({{comment().repliesCount}})</p>
+        @if(!comment().isReply){
+          @if (isExpanded()) {
+            <p class="comment-replies-toggle" (click)="toggleExpanded()">Ocultar respuestas ({{comment().repliesCount}})</p>
+          }@else {
+            <p class="comment-replies-toggle"(click)="toggleExpanded()">Mostrar respuestas ({{comment().repliesCount}})</p>
+          }
         }
 
       </div>

@@ -149,7 +149,6 @@ export default class CreateAnnouncementComponent  implements OnInit {
     this.municipalitySelect()?.clear()
     this.municipalities.set([])
     this.locationService.getAllMunicipalityByProvince(id).subscribe(response =>{
-      console.log(response)
       this.municipalities.set(response)
     })
   }
@@ -190,7 +189,6 @@ export default class CreateAnnouncementComponent  implements OnInit {
       })
 
       this.announcementService.create(data)
-      console.log('submit')
     }
   }
 

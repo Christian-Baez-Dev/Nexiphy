@@ -18,11 +18,7 @@ export class PublishService {
 
   getPublishes(): Observable<PaginationResponse<Publish[]>>{
     return this.httpClient
-    .get<PaginationResponse<Publish[]>>(this.apiUrl + '/others', {withCredentials:true}).pipe(
-      tap((response) =>{
-        console.log(response)
-      })
-    )
+    .get<PaginationResponse<Publish[]>>(this.apiUrl + '/others', {withCredentials:true})
   }
 
 

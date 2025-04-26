@@ -25,7 +25,6 @@ export class CommentComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.comment())
   }
 
   toggleExpanded() {
@@ -41,7 +40,6 @@ export class CommentComponent  implements OnInit {
   createCommentChilldren(content:string){
     this.publishService.createComment({content:content, parentCommentId:this.comment().id}).subscribe((response) =>{
       this.isInputOpen.set(false)
-      console.log(response)
       this.publishService.getRepliesComment(this.comment().id).subscribe((response) =>{
         this.replies.set(response.data)
       })

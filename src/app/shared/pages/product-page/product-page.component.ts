@@ -28,7 +28,6 @@ export default class ProductPageComponent  implements OnInit {
     if(this.param){
       this.announcementService.getOne(this.param).subscribe((response) => {
         this.announcement.set(response)
-        console.log(this.announcement()?.marketUser)
       })
     }
   }

@@ -14,10 +14,6 @@ export class ProfileService {
   constructor() { }
 
   getProfile(userName: string): Observable<UserProfile>{
-    return this.httpClient.get<UserProfile>(this.apiUrl + `/${userName}`, {withCredentials: true}).pipe(
-      tap((response) =>{
-        console.log(response)
-      })
-    )
+    return this.httpClient.get<UserProfile>(this.apiUrl + `/${userName}`, {withCredentials: true})
   }
 }

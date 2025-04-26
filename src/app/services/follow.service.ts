@@ -13,18 +13,11 @@ export class FollowService {
 
 
   followSomeone(userId:string){
-    console.log('entro a seguir')
-    this.httpClient.post(this.apiUrl + `/follow/${userId}`, {},{withCredentials:true, observe:'response'}).subscribe((response) =>{
-      console.log(response)
-    })
+    this.httpClient.post(this.apiUrl + `/follow/${userId}`, {},{withCredentials:true, observe:'response'})
   }
 
 
   unfollowSomeone(userId: string){
-    console.log('entro a dejar de seguir')
-
-    this.httpClient.delete(this.apiUrl + `/unfollow/${userId}`, { withCredentials: true, observe: 'response'}).subscribe((response) =>{
-      console.log(response)
-    })
+    this.httpClient.delete(this.apiUrl + `/unfollow/${userId}`, { withCredentials: true, observe: 'response'})
   }
 }

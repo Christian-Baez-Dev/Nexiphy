@@ -18,9 +18,7 @@ export class AnnouncementService {
   }
 
   create(data: FormData){
-    this.httpClient.post(this.apiUrl,data,{withCredentials:true, observe: 'response'}).subscribe(response =>{
-      console.log(response)
-    })
+    this.httpClient.post(this.apiUrl,data,{withCredentials:true, observe: 'response'})
   }
 
   getOne(announcementId: string): Observable<Announcement>{
